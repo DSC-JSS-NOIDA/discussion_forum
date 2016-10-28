@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    Error Page
+    Edit Article
 @endsection
 
 @section('js')

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    Error Page
+    Admin
 @endsection
 
 @section('js')

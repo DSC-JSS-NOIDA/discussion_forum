@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
+Route::get('/rules', function () {
+	return view('rules');
+});
+
+Route::get('/leaderboard', 'LeaderboardController@show');

@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    Error Page
+    Homepage
+    <a type="button" class="btn btn-default" href="#">Login</a>
 @endsection
 
 @section('js')

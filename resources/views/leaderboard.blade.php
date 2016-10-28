@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    Error Page
+    Leaderboard
 @endsection
 
 @section('js')
