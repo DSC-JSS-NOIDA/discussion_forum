@@ -53,7 +53,12 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::where('article_id', $id)->get();
+        if(!count($article))
+            return view('errors.503');
+        else
+            $article = $article[0];
+            return view('article', compact('article'));
     }
 
     /**

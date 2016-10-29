@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
-Route::get('/rules', function () {
-	return view('rules');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/category/{id}', 'CategoryController@index');
+Route::get('/article/{id}', 'ArticleController@show');
+Route::get('/rules', function(){return view('rules');});
 
 Route::get('/leaderboard', 'LeaderboardController@show');

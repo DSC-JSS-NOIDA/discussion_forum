@@ -19,9 +19,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $categories = Category::where('category_id',$id)->get();
+        $i=0;
+        $categories = $categories->toArray();
+        if(empty($categories))
+            return view('errors.503');
+        $category = $categories[0];
+        $articles = Article::where('category_id',$id)->paginate(5);
+        //$articles = $articles->toArray();
+        return view('article_list',compact('articles','category','i'));
     }
 
     /**
