@@ -87,16 +87,15 @@ class AuthController extends Controller
     {
          $user = Socialite::driver('google')->user();
 
-        $person = User::where('email', $user->getEmail())->get();  
+        $person = User::where('email', $user->getEmail())->first();  
        
        if($person->count()==0)
        {
         $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName()]);
         //login for the first time
        }
-    //   Auth::login($person);
-        $cont = new HomeController;
-
+       Auth::login($person);
+        $cont = new \App\Http\Controllers\HomeController;
         return $cont->index();
         
     }

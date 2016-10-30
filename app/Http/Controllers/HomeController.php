@@ -16,11 +16,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-    //	echo Auth::user()->username;
+   		//echo Auth::user()->username;
     	$categories = Category::get();
     	//$categories = $categories->toArray();
     	//echo "njgfjyh";
     	return view('homepage', compact('categories'));
-    }
-   
+    	
+   }
 }
