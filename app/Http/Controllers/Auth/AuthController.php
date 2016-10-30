@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -73,7 +74,8 @@ class AuthController extends Controller
 
     public function redirectToProvider()
     {
-        return Socialite::driver('google')->redirect();
+    
+       return Socialite::driver('google')->redirect();
     }
 
     /**
@@ -83,16 +85,19 @@ class AuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('google')->user();
-        echo $user->getName();
-        $person= new User();
-        $person->username="shashaa35";
-        $person->password="sdfdf";
-        $person->email=$user->getEmail();
-        $person->status="1";
-        $person->admin="0";
-        $this->login($person);
-        return "ok";
-        // $user->token;
+         $user = Socialite::driver('google')->user();
+
+        $person = User::where('email', $user->getEmail())->get();  
+       
+       if($person->count()==0)
+       {
+        $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName()]);
+        //login for the first time
+       }
+    //   Auth::login($person);
+        $cont = new HomeController;
+
+        return $cont->index();
+        
     }
 }
