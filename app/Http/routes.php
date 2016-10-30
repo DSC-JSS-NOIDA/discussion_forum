@@ -16,4 +16,7 @@ Route::get('/category/{id}', 'CategoryController@index');
 Route::get('/article/{id}', 'ArticleController@show');
 Route::get('/rules', function(){return view('rules');});
 
+Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
+Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
+
 Route::get('/leaderboard', 'LeaderboardController@show');
