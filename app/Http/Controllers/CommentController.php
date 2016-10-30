@@ -11,6 +11,7 @@ use App\Event;
 use App\join;
 use App\Rating;
 use App\User;
+use App\Comment;
 
 class CommentController extends Controller
 {

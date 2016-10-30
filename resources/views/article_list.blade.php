@@ -13,8 +13,8 @@
     	@foreach($articles as $article)
     		{{ ++$i }}
     		<a href="/article/{{$article->article_id}}">
-    			 {{ $article->title }}
-    			 {{ substr($article->content,0,100) }}
+    			 Title: {{ $article->title }}
+    			 Content: {{ substr($article->content,0,100) }}
     		</a>
     		<br>
     	@endforeach

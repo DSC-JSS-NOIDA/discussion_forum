@@ -11,6 +11,7 @@ use App\Event;
 use App\join;
 use App\Rating;
 use App\User;
+use App\Comment;
 
 class ArticleController extends Controller
 {
@@ -58,7 +59,11 @@ class ArticleController extends Controller
             return view('errors.503');
         else
             $article = $article[0];
-            return view('article', compact('article'));
+            $comments = Comment::join('users', 'users.user_id','=','comments.user_id')
+                        ->select('users.username','comments.*')
+                        ->where('comments.article_id', $id)
+                        ->get();
+            return view('article', compact('article','comments'));
     }
 
     /**
