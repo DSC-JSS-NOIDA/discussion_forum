@@ -17,6 +17,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+//<<<<<<< HEAD
     	$user = Auth::user();
         $categories = Category::get();
     	if($user)
@@ -52,4 +53,10 @@ class HomeController extends Controller
             return view('homepage', compact('categories','user_id'));
         }
 	}
+//=======
+//   	$categories = Category::get();
+//    	return view('homepage', compact('categories'));
+    	
+//   }
+//>>>>>>> 7017bd9e9a79cc687905537c2be473ec73d60cea
 }
