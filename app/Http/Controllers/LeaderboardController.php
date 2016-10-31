@@ -17,6 +17,11 @@ class LeaderboardController extends Controller
 {
     public function show()
     {
-    	return view('leaderboard');
+
+    	$categories = Category::get();
+    	$users = User::get();
+    	$articles =Article::get();
+    
+    	return view('leaderboard',compact('categories','users','articles'));
     }
 }
