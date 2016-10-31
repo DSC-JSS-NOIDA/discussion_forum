@@ -49,10 +49,13 @@ class ArticleController extends Controller
                     ->get();
         $category = $category->toArray();
         $category_id = $category[0]['category_id'];
-
-        //check for existing article and return error
-
-        
+        $articles = Article::where([
+                ['user_id','=',$request->user_id],
+                ['category_id','=',$category_id]
+            ])
+            ->get();
+        if(count($articles))
+            return view('errors.503');
         $article = new Article;
         $article->user_id = (int)$request->user_id;
         $article->category_id = (int)$category_id;
@@ -61,9 +64,8 @@ class ArticleController extends Controller
         $article->reference = "";
         $article->avg_rating = 0;
         $article->no_of_rating = 0;
-        // return $article;
-        return $article->save();
-        
+        $article->save();
+        return $article->category_id;
     }
 
     /**
