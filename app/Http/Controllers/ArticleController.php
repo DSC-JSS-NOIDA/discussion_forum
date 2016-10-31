@@ -43,7 +43,27 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category_name = $request->category;
+        $category = Category::select('category_id')
+                    ->where('category_name',$category_name)
+                    ->get();
+        $category = $category->toArray();
+        $category_id = $category[0]['category_id'];
+
+        //check for existing article and return error
+
+        
+        $article = new Article;
+        $article->user_id = (int)$request->user_id;
+        $article->category_id = (int)$category_id;
+        $article->title = "";
+        $article->content = "";
+        $article->reference = "";
+        $article->avg_rating = 0;
+        $article->no_of_rating = 0;
+        // return $article;
+        return $article->save();
+        
     }
 
     /**

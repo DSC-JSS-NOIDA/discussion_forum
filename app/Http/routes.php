@@ -18,5 +18,8 @@ Route::get('/rules', function(){return view('rules');});
 
 Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
+Route::get('/logout', 'Auth\AuthController@signout');
+
+Route::post('/add_article','ArticleController@store');
 
 Route::get('/leaderboard', 'LeaderboardController@show');

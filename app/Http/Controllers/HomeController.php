@@ -17,11 +17,39 @@ class HomeController extends Controller
 {
     public function index()
     {
-   		//echo Auth::user()->username;
-    	$categories = Category::get();
-    	//$categories = $categories->toArray();
-    	//echo "njgfjyh";
-    	return view('homepage', compact('categories'));
-    	
-   }
+    	$user = Auth::user();
+        $categories = Category::get();
+    	if($user)
+        {
+            $user_id = $user->user_id;
+        	$my_articles = Article::join('users','users.user_id','=','articles.user_id')
+        				->join('categories','categories.category_id','=','articles.category_id')
+        				->select('users.username','users.user_id','articles.*','categories.category_name')
+        				->where('users.email',$user->email)
+        				->get();
+            $remaining_categories = array();
+            foreach ($categories as $category)
+            {
+                $flag=1;
+                foreach ($my_articles as $my_article)
+                {
+                    if($category->category_id==$my_article->category_id)
+                    {
+                        $flag=0;
+                        break;
+                    }
+                }
+                if($flag==1)
+                {
+                    $remaining_categories[] = $category->category_name;
+                }
+            }
+        	return view('homepage', compact('categories','my_articles','remaining_categories','user_id'));
+        }
+        else
+        {
+            $user_id = 0;
+            return view('homepage', compact('categories','user_id'));
+        }
+	}
 }

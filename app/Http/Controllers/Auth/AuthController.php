@@ -99,4 +99,10 @@ class AuthController extends Controller
         return $cont->index();
         
     }
+
+    public function signout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }
