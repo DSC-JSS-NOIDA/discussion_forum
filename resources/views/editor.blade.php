@@ -6,6 +6,7 @@
 
 @section('content')
     Edit Article
+    {{ var_dump($article) }}
 @endsection
 
 @section('js')

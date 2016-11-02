@@ -13,12 +13,14 @@
 						You have not yet created an article
 					@else
 						@foreach($my_articles as $my_article)
-							Category: {{ $my_article->category_name }}
-							<br>
-							Title: {{ $my_article->title }}
-							<br>
-							Content: {{ $my_article->content }}
-							<br>
+							<a href="/article/{{ $my_article->article_id }}">
+								Category: {{ $my_article->category_name }}
+								<br>
+								Title: {{ $my_article->title }}
+								<br>
+								Content: {{ $my_article->content }}
+								<br>
+							</a>
 						@endforeach
 					@endif
 					@if(count($my_articles)==count($categories))

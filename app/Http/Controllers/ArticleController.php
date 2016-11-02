@@ -62,7 +62,7 @@ class ArticleController extends Controller
         $article->title = "";
         $article->content = "";
         $article->reference = "";
-        $article->avg_rating = 0;
+        $article->avg_rating = -1;
         $article->no_of_rating = 0;
         $article->save();
         return $article->category_id;
@@ -76,6 +76,9 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        // $user = Auth::user();
+        // $user_id = $user->user_id;
+        $user_id = 55;
         $article = Article::where('article_id', $id)->get();
         if(!count($article))
             return view('errors.503');
@@ -85,7 +88,7 @@ class ArticleController extends Controller
                         ->select('users.username','comments.*')
                         ->where('comments.article_id', $id)
                         ->get();
-            return view('article', compact('article','comments'));
+            return view('article', compact('article','comments','user_id'));
     }
 
     /**
@@ -96,7 +99,25 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        //
+        // if(Auth::check())
+        {
+            // $user = Auth::user();
+            // $user_id = $user->user_id;
+            $user_id = 55;
+            $article = Article::where([
+                ['article_id','=',$id],
+                ['user_id','=',$user_id],
+            ])
+            ->get(); 
+            if(!count($article))
+                return view('errors.503');
+            else
+            {
+                return view('editor',compact('article'));
+            }
+        }
+        // else
+            return view('errors.503');
     }
 
     /**

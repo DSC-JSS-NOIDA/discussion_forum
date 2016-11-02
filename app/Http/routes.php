@@ -21,5 +21,6 @@ Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
 Route::get('/logout', 'Auth\AuthController@signout');
 
 Route::post('/add_article','ArticleController@store');
+Route::get('/editor/{article_id}','ArticleController@edit');
 
 Route::get('/leaderboard', 'LeaderboardController@show');

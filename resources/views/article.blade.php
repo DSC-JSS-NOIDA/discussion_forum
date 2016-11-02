@@ -7,6 +7,12 @@
 @section('content')
 	Title: {{ $article->title }}
 	<br>
+	@if($article->avg_rating==-1)
+		Be the first to Rate this article
+	@else
+		Rating: {{ $article->avg_rating }}
+	@endif
+	<br>
 	Content: {{ $article->content }}
 	<br>
 	Comments:
@@ -19,6 +25,10 @@
 			{{ $comment->username }}
 			</b><br>
 		@endforeach
+	@endif
+	<br>
+	<!--if(Auth::check() && -->@if($article->user_id==$user_id)
+		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
 	@endif
 @endsection
 
