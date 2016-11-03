@@ -11,16 +11,16 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::get('/category/{id}', 'CategoryController@index');
-Route::get('/article/{id}', 'ArticleController@show');
+Route::get('/',  [ 'middleware'=>'web','uses'=>'HomeController@index']);
+Route::get('/category/{id}', [ 'middleware'=>'web','uses'=>'CategoryController@index']);
+Route::get('/article/{id}',[ 'middleware'=>'web','uses'=>'ArticleController@show']);
 Route::get('/rules', function(){return view('rules');});
 
 Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
 Route::get('/logout', 'Auth\AuthController@signout');
 
-Route::post('/add_article','ArticleController@store');
-Route::get('/editor/{article_id}','ArticleController@edit');
+Route::post('/add_article', [ 'middleware'=>'web','uses'=>'ArticleController@store']);
+Route::get('/editor/{article_id}', [ 'middleware'=>'web','uses'=>'ArticleController@edit']);
 
-Route::get('/leaderboard', 'LeaderboardController@show');
+Route::get('/leaderboard', [ 'middleware'=>'web','uses'=>'LeaderboardController@show'] );
