@@ -72,18 +72,21 @@
 	<!-- start of comments div -->
 	<div class="container">
 	<h2>Comments:</h2>
-	<br><br>
 	@if(!count($comments))
 		Be the first to review
 	@else
 		@foreach($comments as $comment)
-			{{ $comment->content }}
-			<br>
-			<b>by
-			{{ $comment->username }}
-			</b><br><br>
+			<hr>
+			<h4 >{{ $comment->username }}</h4>
+		<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
+			<p id="content{{$comment->comment_id}}">{{ $comment->content }}</p>
+			@if($user_id==$comment->user_id)
+				<a class="edit_comment btn btn-default" id="edit{{$comment->comment_id}}">Edit</a>	
+				<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
+			@endif
 		@endforeach
 	@endif
+
 	<br>
 	<!--if(Auth::check() && -->@if($article->user_id==$user_id)
 		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
@@ -99,4 +102,5 @@
 		var user_id = {{ $user_id }};
 	</script>
     <script src="{{ asset('js/article.js') }}"></script>
+    <script src="{{ asset('js/comments.js') }}"></script>
 @endsection	
