@@ -90,4 +90,28 @@ class RatingController extends Controller
     {
         //
     }
+
+    public function rate_by_user(Request $request)
+    {
+        $user_id = $request->user_id;
+        $rate = $request->rate;
+        $article_id = $request->article_id;
+        $rating_model = new Rating;
+        //create or update rating in rating table..
+        $save_and_diff = $rating_model->save_rating($user_id,$article_id,$rate);
+        
+        $article_model = new Article;
+        
+        //increment no. of raters if this is a new rater..
+        if($save_and_diff==-50)
+        {
+            $article_model->increment_raters($article_id);
+        }
+
+
+        //update the average rating of the article and return it
+        $avg = $article_model->update_avg($article_id,$save_and_diff,$rate);
+
+        return $avg;
+    }
 }

@@ -61,7 +61,7 @@
 	                            </a>
 
 	                            <ul class="dropdown-menu" role="menu">
-	                                <li><a class="nav-menu" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+	                                <li><a class="nav-menu" href="{{ url('auth/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
 	                            </ul>
 	                        </li>
 	                    @endif

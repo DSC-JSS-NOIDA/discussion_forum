@@ -40,6 +40,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        
     }
 
     /**
@@ -89,18 +90,18 @@ class AuthController extends Controller
 
         $person = User::where('email', $user->getEmail())->first();  
        
-       if($person->count()==0)
+       if(!count($person))
        {
         $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName()]);
         //login for the first time
        }
        Auth::login($person);
-        $cont = new \App\Http\Controllers\HomeController;
-        return $cont->index();
         
+        return redirect('/');
     }
+    
 
-    public function signout()
+    public function logout()
     {
         Auth::logout();
         return redirect('/');
