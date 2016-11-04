@@ -22,7 +22,7 @@ Route::get('/auth/logout', 'Auth\AuthController@logout');
 
 Route::post('/add_article', [ 'middleware'=>'web','uses'=>'ArticleController@store']);
 Route::get('/editor/{article_id}', [ 'middleware'=>'web','uses'=>'ArticleController@edit']);
-
+Route::POST('/update',[ 'middleware'=>'web','uses'=>'ArticleController@update']);
 Route::POST('/rate_by_user', [ 'middleware'=>'web','uses'=>'RatingController@rate_by_user']);
 
 

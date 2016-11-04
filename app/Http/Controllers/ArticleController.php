@@ -140,9 +140,28 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if(Auth::check())
+        {
+            $user = Auth::user();
+            $user_id = $user->user_id;
+            $article = Article::where([
+                ['article_id','=',$request->article_id],
+                ['user_id','=',$user_id],
+            ]);
+            if(!count($article))
+                return view('errors.503');
+            else
+            {
+                //update article
+                $data = $request->only('title','content');
+                $article -> update($data);
+                return redirect('/editor/'.$request->article_id);
+            }
+        }
+        else
+            return view('errors.503');
     }
 
     /**
