@@ -63,9 +63,11 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_comment(Request $request)
     {
-        //
+        $comment_model = new Comment;
+        $status = $comment_model->edit($request->comment_id,$request->comment,$request->user_id);
+        return;
     }
 
     /**
