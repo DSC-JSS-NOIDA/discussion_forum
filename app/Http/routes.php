@@ -18,9 +18,12 @@ Route::get('/rules', function(){return view('rules');});
 
 Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
-Route::get('/logout', 'Auth\AuthController@signout');
+Route::get('/auth/logout', 'Auth\AuthController@logout');
 
 Route::post('/add_article', [ 'middleware'=>'web','uses'=>'ArticleController@store']);
 Route::get('/editor/{article_id}', [ 'middleware'=>'web','uses'=>'ArticleController@edit']);
+
+Route::POST('/rate_by_user', [ 'middleware'=>'web','uses'=>'RatingController@rate_by_user']);
+
 
 Route::get('/leaderboard', [ 'middleware'=>'web','uses'=>'LeaderboardController@show'] );

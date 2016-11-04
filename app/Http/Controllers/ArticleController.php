@@ -76,10 +76,14 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        // $user = Auth::user();
-        // $user_id = $user->user_id;
-        $user_id = 55;
-        $article = Article::where('article_id', $id)->get();
+      if(Auth::check())
+        {
+            $user = Auth::user();
+            $user_id = $user->user_id;
+        }
+        else
+            $user_id = -1;
+       $article = Article::where('article_id', $id)->get();
         if(!count($article))
             return view('errors.503');
         else
@@ -88,7 +92,17 @@ class ArticleController extends Controller
                         ->select('users.username','comments.*')
                         ->where('comments.article_id', $id)
                         ->get();
-            return view('article', compact('article','comments','user_id'));
+
+            $rating = Rating::where([
+                ['article_id','=',$id],
+                ['user_id','=',$user_id],
+            ])->get();
+            if(!count($rating))
+                $rating_by_me=-1;
+            else
+                $rating_by_me = $rating[0]->rating;
+
+            return view('article', compact('article','comments','user_id','rating_by_me'));
     }
 
     /**
@@ -103,7 +117,6 @@ class ArticleController extends Controller
         {
             $user = Auth::user();
             $user_id = $user->user_id;
-            $user_id = 55;
             $article = Article::where([
                 ['article_id','=',$id],
                 ['user_id','=',$user_id],
