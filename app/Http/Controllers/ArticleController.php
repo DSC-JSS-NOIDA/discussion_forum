@@ -99,10 +99,10 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        // if(Auth::check())
+        if(Auth::check())
         {
-            // $user = Auth::user();
-            // $user_id = $user->user_id;
+            $user = Auth::user();
+            $user_id = $user->user_id;
             $user_id = 55;
             $article = Article::where([
                 ['article_id','=',$id],
@@ -116,7 +116,7 @@ class ArticleController extends Controller
                 return view('editor',compact('article'));
             }
         }
-        // else
+        else
             return view('errors.503');
     }
 

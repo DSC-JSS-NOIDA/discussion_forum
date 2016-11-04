@@ -27,7 +27,7 @@
 		@endforeach
 	@endif
 	<br>
-	<!--if(Auth::check() && -->@if($article->user_id==$user_id)
+	@if(Auth::check() && $article->user_id==$user_id)
 		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
 	@endif
 @endsection
