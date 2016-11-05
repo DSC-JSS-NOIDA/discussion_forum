@@ -24,4 +24,5 @@ class Comment extends Model
     	}
     	return 0;
     }
+
 }

@@ -111,7 +111,8 @@ class RatingController extends Controller
 
         //update the average rating of the article and return it
         $avg = $article_model->update_avg($article_id,$save_and_diff,$rate);
-
-        return $avg;
+        $data['avg'] = $avg;
+        $data['my_rating'] = $rate;
+        return $data;
     }
 }

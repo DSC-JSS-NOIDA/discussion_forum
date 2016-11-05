@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$(".rating_by_me").click(function(){
 		var rate = $(this).attr("id");
-		//console.log(category_name);
+		// console.log(category_name);
 		$.ajax({
 			type: 'POST',
 			headers: {
@@ -14,9 +14,8 @@ $(document).ready(function(){
                 'article_id':article_id
     		},
     		success: function(data){
-    			console.log(data);
-
-               
+    			$("#my_rating").html(data['my_rating']);
+                $("#avg_rating").html(data['avg']);
     		}
 		});
 	});

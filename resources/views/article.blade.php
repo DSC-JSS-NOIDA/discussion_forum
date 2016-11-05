@@ -22,7 +22,7 @@
 				@if($article->avg_rating==-1)
 				<h3>Be the first to Rate this article</h3>
 				@else
-				<h2>Rating: {{ $article->avg_rating }}</h2>
+				<h2>Rating: <span id="avg_rating">{{ $article->avg_rating }}</span></h2>
 				@endif
 			</div>
 			<!-- end of avg rating -->
@@ -33,7 +33,7 @@
 				@if($rating_by_me==-1)
 					<h3 id="not_yet_rated">You haven't rate it yet</h3>
 				@else
-					<h3 id="rated"> Your rating : {{$rating_by_me}} </h3>
+					<h3 id="rated"> Your rating : <span id="my_rating">{{$rating_by_me}} </span></h3>
 					<!-- Dropdown for rating -->
 				@endif
 						 <div class="dropdown">
@@ -43,7 +43,7 @@
 						  	<ul class="dropdown-menu">
 							   	@for($i=1;$i<=5;$i++)
 							    	<li>
-							    		<a href="" class="rating_by_me" id="{{ $i }}">{{ $i }}</a>
+							    		<button class="rating_by_me" id="{{ $i }}">{{ $i }}</button>
 							    	</li>
 						    	@endfor
 							</ul>
@@ -85,6 +85,13 @@
 				<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
 			@endif
 		@endforeach
+	@endif
+
+	@if(Auth::check())
+		<input type="text" placeholder="Comment" id="new_comment_text">
+		<input type="submit" class="btn" value="COMMENT" id="new_comment_btn">
+	@else
+		Please login to comment
 	@endif
 
 	<br>

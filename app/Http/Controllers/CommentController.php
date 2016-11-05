@@ -30,9 +30,15 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $comment = Comment::insert([
+                // 'comment_id' => '303',
+                'user_id' => $request->user_id,
+                'article_id' => $request->article_id,
+                'content' => $request->comment
+            ]);
+        return "success";
     }
 
     /**

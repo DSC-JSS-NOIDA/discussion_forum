@@ -39,5 +39,33 @@ $(document).ready(function(){
             }
         }); 
         
-    })
+    });
+
+    $("#new_comment_btn").click(function(){
+        var comment = $("#new_comment_text").val();
+        if(!comment)
+            alert("Seems an Empty Comment");
+        else
+        {
+            $("#new_comment_text").val('');
+            $.ajax({
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/add_comment',
+                data: {
+                    'user_id':user_id,
+                    'article_id':article_id,
+                    'comment':comment                    
+                },
+                success: function(data){
+                    if(data==success)
+                    {
+                        //update the comment
+                    }
+                }
+           });
+        }
+    });
 });

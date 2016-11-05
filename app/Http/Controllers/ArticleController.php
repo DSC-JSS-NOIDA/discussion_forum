@@ -32,7 +32,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('editor');
     }
 
     /**
@@ -65,7 +65,8 @@ class ArticleController extends Controller
         $article->avg_rating = -1;
         $article->no_of_rating = 0;
         $article->save();
-        return $article->category_id;
+        // return redirect('/editor/'.$article->article_id);
+        return $article->article_id;
     }
 
     /**
