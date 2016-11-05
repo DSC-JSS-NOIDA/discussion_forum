@@ -62,7 +62,13 @@
 		<div>
 		<br>
 		<h2>Content:</h2>
-		 {{ $article->content }}
+		 {!! $article->content !!}
+		</div>
+		
+		<!-- start of reference div -->
+		<div>
+		<h3>Reference:</h3>
+		{{ $article->reference }}
 		</div>
 	
 	</div>

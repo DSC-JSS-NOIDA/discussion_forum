@@ -10,3 +10,7 @@ div.footer
     line-height: 30px;
     text-align: center;
 }
+body
+{
+	margin-bottom: 30px;
+}

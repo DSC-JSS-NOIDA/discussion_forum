@@ -20,9 +20,10 @@ Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
 Route::get('/auth/logout', 'Auth\AuthController@logout');
 
-Route::post('/add_article', [ 'middleware'=>'web','uses'=>'ArticleController@store']);
+Route::get('/add_article/{category}', [ 'middleware'=>'web','uses'=>'ArticleController@create']);
 Route::get('/editor/{article_id}', [ 'middleware'=>'web','uses'=>'ArticleController@edit']);
 Route::get('/editor', [ 'middleware'=>'web','uses'=>'ArticleController@create']);
+Route::POST('/create_article',[ 'middleware'=>'web','uses'=>'ArticleController@store']);
 Route::POST('/update',[ 'middleware'=>'web','uses'=>'ArticleController@update']);
 Route::POST('/rate_by_user', [ 'middleware'=>'web','uses'=>'RatingController@rate_by_user']);
 Route::POST('/edit_comment',['middleware'=>'web','uses'=>'CommentController@edit_comment']);

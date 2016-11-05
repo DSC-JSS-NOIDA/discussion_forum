@@ -30,9 +30,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($category)
     {
-        return view('editor');
+        $category = Category::where('category_name',$category)->get();
+        // var_dump($category);
+        $category_id = $category[0]['category_id'];
+        // echo $category_id;
+        $status = "new";
+        return view('editor',compact('status','category_id'));
     }
 
     /**
@@ -43,12 +48,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $category_name = $request->category;
-        $category = Category::select('category_id')
-                    ->where('category_name',$category_name)
-                    ->get();
-        $category = $category->toArray();
-        $category_id = $category[0]['category_id'];
+        $category_id = $request->category_id;
         $articles = Article::where([
                 ['user_id','=',$request->user_id],
                 ['category_id','=',$category_id]
@@ -57,16 +57,16 @@ class ArticleController extends Controller
         if(count($articles))
             return view('errors.503');
         $article = new Article;
-        $article->user_id = (int)$request->user_id;
-        $article->category_id = (int)$category_id;
-        $article->title = "";
-        $article->content = "";
-        $article->reference = "";
+        $article->user_id = Auth::user()->user_id;
+        $article->category_id = $category_id;
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->reference = $request->reference;
         $article->avg_rating = -1;
         $article->no_of_rating = 0;
         $article->save();
         // return redirect('/editor/'.$article->article_id);
-        return $article->article_id;
+        return redirect('/editor/'.$article->article_id);
     }
 
     /**
@@ -156,7 +156,7 @@ class ArticleController extends Controller
             else
             {
                 //update article
-                $data = $request->only('title','content');
+                $data = $request->only('title','content','reference');
                 $article -> update($data);
                 return redirect('/editor/'.$request->article_id);
             }

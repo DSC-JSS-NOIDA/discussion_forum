@@ -34,7 +34,7 @@
 						  	<ul class="dropdown-menu">
 							   	@foreach($remaining_categories as $remaining_category)
 							    	<li>
-							    		<a href="/editor" class="create_article" id="{{ $remaining_category }}">{{ $remaining_category }}</a>
+							    		<a href="/add_article/{{ $remaining_category }}" class="create_article" id="{{ $remaining_category }}">{{ $remaining_category }}</a>
 							    	</li>
 						    	@endforeach
 							</ul>
