@@ -2,6 +2,11 @@
 
 @section('css')
     <!-- Link CSS Files here -->
+    <meta property="og:url"           content="http://localhost:8000/article/{{$article->article_id}}" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="{{$article->title}}" />
+	<meta property="og:description"   content="{!! $article->content !!}" />
+	<meta property="og:image"         content="http://njitvector.com/wp-content/uploads/2014/09/googledev.png" />
 @endsection
 
 @section('content')
@@ -104,6 +109,9 @@
 	<br>
 	@if(Auth::check() && $article->user_id==$user_id)
 		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
+		<!-- change the data href link after hosting -->
+		<!-- <div class="fb-share-button" data-href="http://localhost:8000/article/{{$article->article_id}}" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div> -->
+		<div class="fb-share-button" data-href="http://www.google.com" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div>
 	@endif
 	</div>
 	<!-- end of comments div -->
