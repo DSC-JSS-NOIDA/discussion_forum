@@ -14,8 +14,8 @@ $(document).ready(function(){
                 'article_id':article_id
     		},
     		success: function(data){
-    			$("#my_rating").html(data['my_rating']);
-                $("#avg_rating").html(data['avg']);
+    			$("#my_rating").html(data.my_rating);
+                $("#avg_rating").html(data.avg);
     		}
 		});
 	});

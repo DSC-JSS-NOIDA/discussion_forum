@@ -20,7 +20,7 @@
 			<!-- avg rating -->
 			<div>
 				@if($article->avg_rating==-1)
-				<h3>Be the first to Rate this article</h3>
+				<h3>Rating: <span id="avg_rating">Be the first to Rate this article</span></h3>
 				@else
 				<h2>Rating: <span id="avg_rating">{{ $article->avg_rating }}</span></h2>
 				@endif
@@ -31,7 +31,7 @@
 			<div>
 
 				@if($rating_by_me==-1)
-					<h3 id="not_yet_rated">You haven't rate it yet</h3>
+					<h3> Your rating : <span id="my_rating">You haven't rate it yet</span></h3>
 				@else
 					<h3 id="rated"> Your rating : <span id="my_rating">{{$rating_by_me}} </span></h3>
 					<!-- Dropdown for rating -->
