@@ -29,4 +29,7 @@ Route::POST('/rate_by_user', [ 'middleware'=>'web','uses'=>'RatingController@rat
 Route::POST('/edit_comment',['middleware'=>'web','uses'=>'CommentController@edit_comment']);
 Route::post('/add_comment',['middleware'=>'web','uses'=>'CommentController@create']);
 
+Route::get('/admin', [ 'middleware'=>'web','uses'=>'AdminController@index']);
+Route::post('/admin/spamuser', [ 'middleware'=>'web','uses'=>'AdminController@spam']);
+
 Route::get('/leaderboard', [ 'middleware'=>'web','uses'=>'LeaderboardController@show'] );

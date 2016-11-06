@@ -92,7 +92,7 @@ class AuthController extends Controller
        
        if(!count($person))
        {
-        $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName()]);
+        $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName(),'status'=>1]);
         //login for the first time
        }
        Auth::login($person);
