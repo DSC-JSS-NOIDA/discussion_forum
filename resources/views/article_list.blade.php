@@ -14,7 +14,7 @@
     		{{ ++$i }}
     		<a href="/article/{{$article->article_id}}">
     			 Title: {{ $article->title }}
-    			 Content: {{ substr($article->content,0,100) }}
+    			 Content: {!! substr($article->content,0,100) !!}
     		</a>
     		<br>
     	@endforeach

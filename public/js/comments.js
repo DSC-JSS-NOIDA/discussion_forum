@@ -60,9 +60,9 @@ $(document).ready(function(){
                     'comment':comment                    
                 },
                 success: function(data){
-                    if(data==success)
+                    if(data=="success")
                     {
-                        //update the comment
+                        console.log("1");
                     }
                 }
            });

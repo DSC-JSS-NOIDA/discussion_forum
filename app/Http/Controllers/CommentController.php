@@ -32,12 +32,17 @@ class CommentController extends Controller
      */
     public function create(Request $request)
     {
-        $comment = Comment::insert([
-                // 'comment_id' => '303',
-                'user_id' => $request->user_id,
-                'article_id' => $request->article_id,
-                'content' => $request->comment
-            ]);
+        $coment = new Comment;
+        $coment->user_id = $request->user_id;
+        $coment->article_id = $request->article_id;
+        $coment->content = $request->comment;
+        $coment->save();
+        // $comment = Comment::insert([
+        //         // 'comment_id' => '303',
+        //         'user_id' => $request->user_id,
+        //         'article_id' => $request->article_id,
+        //         'content' => $request->comment
+        //     ]);
         return "success";
     }
 

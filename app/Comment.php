@@ -10,6 +10,7 @@ class Comment extends Model
     	'user_id', 'article_id', 'content',
     ];
     protected $primaryKey = 'comment_id';
+     public $timestamps = true;
     public function edit($id,$comment,$user_id)
     {
     	$record = Comment::where([
