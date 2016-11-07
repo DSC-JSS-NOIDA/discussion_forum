@@ -18,7 +18,7 @@
 								<br>
 								Title: {{ $my_article->title }}
 								<br>
-								Content: {{ $my_article->content }}
+								Content: {!! $my_article->content !!}
 								<br>
 							</a>
 						@endforeach

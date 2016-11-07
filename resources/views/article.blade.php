@@ -90,7 +90,7 @@
 			<hr>
 			<h4 >{{ $comment->username }}</h4>
 		<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
-			<p id="content{{$comment->comment_id}}">{{ $comment->content }}</p>
+			<p id="content{{$comment->comment_id}}">{!! $comment->content !!}</p>
 			<span>{{ $comment->created_at }}</span>
 			@if($user_id==$comment->user_id)
 				<a class="edit_comment btn btn-default" id="edit{{$comment->comment_id}}">Edit</a>	
