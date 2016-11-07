@@ -95,9 +95,14 @@ class AuthController extends Controller
         $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName(),'status'=>1]);
         //login for the first time
        }
-       Auth::login($person);
-        
-        return redirect('/');
+        $person = User::where('email', $user->getEmail())->first();
+        if($person->status!=0)
+        {  
+            Auth::login($person);
+            return redirect('/');
+        }
+        else
+            return view('errors.503');
     }
     
 

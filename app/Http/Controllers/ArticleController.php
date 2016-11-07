@@ -89,9 +89,16 @@ class ArticleController extends Controller
             return view('errors.503');
         else
             $article = $article[0];
+            $author = $article->user_id;
+            //$author = (int)$author;
+            $author = User::where('user_id',$author)->get();
+            // var_dump($author);
+            if($author[0]->status==0)
+               return view('errors.503');
             $comments = Comment::join('users', 'users.user_id','=','comments.user_id')
                         ->select('users.username','comments.*')
                         ->where('comments.article_id', $id)
+                        ->where('users.status',1)
                         ->get();
 
             $rating = Rating::where([

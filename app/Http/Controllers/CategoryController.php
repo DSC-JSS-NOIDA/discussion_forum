@@ -28,7 +28,10 @@ class CategoryController extends Controller
         if(empty($categories))
             return view('errors.503');
         $category = $categories[0];
-        $articles = Article::where('category_id',$id)->paginate(5);
+        $articles = Article::join('users','users.user_id','=','articles.user_id')
+                    ->where('articles.category_id',$id)
+                    ->where('users.status',1)
+                    ->paginate(5);
         //$articles = $articles->toArray();
         return view('article_list',compact('articles','category','i'));
     }
