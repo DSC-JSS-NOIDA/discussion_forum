@@ -77,6 +77,8 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        $category_model = new Category;
+        $categories = $category_model->show();
       if(Auth::check())
         {
             $user = Auth::user();
@@ -114,7 +116,7 @@ class ArticleController extends Controller
             else
                 $rating_by_me = $rating[0]->rating;
             // echo $username;
-            return view('article', compact('article','comments','user_id','rating_by_me','username'));
+            return view('article', compact('article','categories','comments','user_id','rating_by_me','username'));
     }
 
     /**

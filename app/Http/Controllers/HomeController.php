@@ -19,7 +19,9 @@ class HomeController extends Controller
     {
 //<<<<<<< HEAD
     	$user = Auth::user();
-        $categories = Category::get();
+        $category_model = new Category;
+        $categories = $category_model->show();
+        //$categories = Category::get();
     	if($user)
         {
             $user_id = $user->user_id;

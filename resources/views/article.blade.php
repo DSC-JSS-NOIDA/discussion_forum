@@ -13,6 +13,10 @@
 <!-- start of main div -->
 	<div class="container">
 	
+		<!-- Categories -->
+		@include('category')
+
+		
 		<!-- start of title div -->
 		<div>
 		<h2>Title: {{ $article->title }}</h2>
