@@ -97,11 +97,13 @@
 				<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
 			@endif
 		@endforeach
+		<div id="comment_insert"></div>
 	@endif
 
 	@if(Auth::check())
 		<input type="text" placeholder="Comment" id="new_comment_text">
 		<input type="submit" class="btn" value="COMMENT" id="new_comment_btn">
+		<script>var username = "{{ $username }}";</script>
 	@else
 		Please login to comment
 	@endif
@@ -110,7 +112,7 @@
 	@if(Auth::check() && $article->user_id==$user_id)
 		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
 		<!-- change the data href link after hosting -->
-		<!-- <div class="fb-share-button" data-href="http://localhost:8000/article/{{$article->article_id}}" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div> -->
+		<div class="fb-share-button" data-href="http://techblog.pagekite.me/article/{{$article->article_id}}" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div>
 		<div class="fb-share-button" data-href="http://www.google.com" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div>
 	@endif
 	</div>

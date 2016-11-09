@@ -66,7 +66,10 @@ class AdminController extends Controller
         {
             //return $user[0];
             if($user[0]->status==0)
-                return "User already Spam";
+            {
+                User::where('user_id',$user_id)->update(['status'=>1]);
+                return "User unspammed";
+            }
             else
             {
                 User::where('user_id',$user_id)->update(['status'=>0]);

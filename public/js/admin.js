@@ -19,7 +19,10 @@ $(document).ready(function(){
     				},
     			success: function(data){
     				alert(data);
-    				$("#"+user_id).html(0);
+    				if(data=="User Spammed")
+    					$("#"+user_id).html(0);
+    				if(data=="User unspammed")
+    					$("#"+user_id).html(1);
     			}
 			});
 		}

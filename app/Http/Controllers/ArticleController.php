@@ -81,9 +81,13 @@ class ArticleController extends Controller
         {
             $user = Auth::user();
             $user_id = $user->user_id;
+            $username = $user->username;
         }
         else
+        {
             $user_id = -1;
+            $username = 'guest';
+        }
        $article = Article::where('article_id', $id)->get();
         if(!count($article))
             return view('errors.503');
@@ -109,8 +113,8 @@ class ArticleController extends Controller
                 $rating_by_me=-1;
             else
                 $rating_by_me = $rating[0]->rating;
-
-            return view('article', compact('article','comments','user_id','rating_by_me'));
+            // echo $username;
+            return view('article', compact('article','comments','user_id','rating_by_me','username'));
     }
 
     /**
