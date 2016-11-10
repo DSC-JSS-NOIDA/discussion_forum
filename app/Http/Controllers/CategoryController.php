@@ -31,9 +31,13 @@ class CategoryController extends Controller
         $articles = Article::join('users','users.user_id','=','articles.user_id')
                     ->where('articles.category_id',$id)
                     ->where('users.status',1)
+                    ->orderBy('articles.article_id','DESC')
                     ->paginate(5);
+        $category_model = new Category;
+        $categories = $category_model->show();
+        //var_dump($categories);
         //$articles = $articles->toArray();
-        return view('article_list',compact('articles','category','i'));
+        return view('article_list',compact('categories','articles','category','i'));
     }
 
     /**
