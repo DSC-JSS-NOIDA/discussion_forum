@@ -5,7 +5,7 @@
     <meta property="og:url"           content="http://localhost:8000/article/{{$article->article_id}}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="{{$article->title}}" />
-	<meta property="og:description"   content="{!! $article->content !!}" />
+	<!-- <meta property="og:description"   content="{!! $article->content !!}" /> -->
 	<meta property="og:image"         content="http://njitvector.com/wp-content/uploads/2014/09/googledev.png" />
 @endsection
 

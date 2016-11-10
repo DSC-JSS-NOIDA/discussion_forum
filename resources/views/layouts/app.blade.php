@@ -4,22 +4,17 @@
   		
   		<title>Platform</title>
   		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	  	<meta name="csrf-token" content="{{ csrf_token() }}">
     
-	    <!-- Fonts -->
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
+	     <!--Import Google Icon Font-->
+      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      	<!--Import materialize.css-->
+      	<link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}" media="screen,projection"/>
+      	<link rel="stylesheet" type="text/css" href="{{ asset('css/full_site.css') }}">
 
-    	<!-- Bootstrap + jQuery -->
-  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-  		@yield('css')
+		@yield('css')
 
 	</head>
 	<body>
@@ -35,59 +30,63 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-	    <nav class="navbar navbar-static-top">
-	        <div class="container">
-	            <div class="navbar-header">
-
-	                <!-- Collapsed Hamburger -->
-	                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-	                    <span class="sr-only">Toggle Navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-
-	                <!-- Branding Image -->
-	                <a class="navbar-brand" href="{{ url('/') }}">
-	                    <b>Platform</b>
-	                </a>
-	            </div>
-
-	            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-	                <!-- Left Side Of Navbar -->
-	                <ul class="nav navbar-nav">
-	                    <li><a class="nav-menu" href="{{ url('/rules') }}">Rules</a></li>
-	                    <li><a class="nav-menu" href="{{ url('/leaderboard') }}">Leaderboard</a></li>
-	                </ul>
-
-	                <!-- Right Side Of Navbar -->
-	                <ul class="nav navbar-nav navbar-right">
-	                    <!-- Authentication Links -->
-	                    @if (!(Auth::check()))
-	                        <li><a class="nav-menu" href="/auth/google">Login</a></li>
-	                    @else
-	                        <li class="dropdown">
-	                            <a class="nav-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-	                                {{ Auth::user()->username }} <span class="caret"></span>
-	                            </a>
-
-	                            <ul class="dropdown-menu" role="menu">
-	                                <li><a class="nav-menu" href="{{ url('auth/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-	                            </ul>
-	                        </li>
-	                    @endif
-	                </ul>
-	            </div>
-	        </div>
-	    </nav>
-
-	    @yield('content')
+    <div class="navbar-fixed">
+      <!-- Dropdown Structure -->
+  		<ul id="dropdown1" class="dropdown-content">
+  	  		<li><a href="{{ url('auth/logout') }}">Logout</a></li>
+  		</ul>
+  	    <nav class="white">
+      		<div class="nav-wrapper container">
+        			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
+        			<ul id="nav-mobile" class="right hide-on-med-and-down">
+        				<li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+          			<li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
+          			<li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
+          			<!-- Authentication Links -->
+  	                    @if (!(Auth::check()))
+  	                        <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
+  	                    @else
+  	                        <!-- Dropdown Trigger -->
+        						<li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">{{ Auth::user()->username }}<i class="material-icons right">arrow_drop_down</i></a></li>
+  	                    @endif
+        			</ul>
+      		</div>
+    		</nav>
+      </div>
 
 
-	    <div class="footer">
-	        Copyright &copy 2016 GDG JSS Noida
-	    </div>
+	    <div class="container">
+        
+        @yield('content')
 
+      </div>
+
+      <footer class="page-footer white">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="">Footer Content</h5>
+                <p class="">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="">Categories</h5>
+                <ul>
+                  <li><a href="#!" class="black-text">Category 1</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright  white">
+            <div class="container">
+            <span class="black-text">© GDG JSS Noida</span>
+            </div>
+          </div>
+        </footer>
+
+	    <!--Import jQuery before materialize.js-->
+      	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      	<script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+      	<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
 	    @yield('js')
 	</body>
 </html>
