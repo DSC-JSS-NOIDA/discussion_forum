@@ -41,6 +41,20 @@
 						</div>
 					@endif
 	    		@else
+					@if(!count($recentarticles))
+						No articles Published yet.
+					@else
+						@foreach($recentarticles as $recentarticles)
+							<a href="/article/{{ $recentarticles->article_id }}">
+								Category: {{ $recentarticles->category_name }}
+								<br>
+								Title: {{ $recentarticles->title }}
+								<br>
+								Content: {!! substr($recentarticles->content,0,100) !!}
+								<br>
+							</a>
+						@endforeach
+					@endif
 	    		<a type="button" class="btn btn-default" href="/auth/google">Login</a>
 				@endif
 			</div>

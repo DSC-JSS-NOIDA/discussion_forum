@@ -66,7 +66,7 @@ class ArticleController extends Controller
         $article->no_of_rating = 0;
         $article->save();
         // return redirect('/editor/'.$article->article_id);
-        return redirect('/editor/'.$article->article_id);
+        return redirect('/article/'.$article->article_id);
     }
 
     /**
@@ -170,8 +170,10 @@ class ArticleController extends Controller
             {
                 //update article
                 $data = $request->only('title','content','reference');
+                //script
+                return var_dump($data);
                 $article -> update($data);
-                return redirect('/editor/'.$request->article_id);
+                return redirect('/article/'.$request->article_id);
             }
         }
         else

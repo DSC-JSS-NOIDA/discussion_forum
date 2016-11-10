@@ -22,6 +22,9 @@ class HomeController extends Controller
         $category_model = new Category;
         $categories = $category_model->show();
         //$categories = Category::get();
+        $article_model = new Article;
+        $recentarticles = $article_model->getRecent();
+        // return var_dump($recentarticles);
     	if($user)
         {
             $user_id = $user->user_id;
@@ -47,12 +50,12 @@ class HomeController extends Controller
                     $remaining_categories[] = $category->category_name;
                 }
             }
-        	return view('homepage', compact('categories','my_articles','remaining_categories','user_id'));
+        	return view('homepage', compact('categories','my_articles','remaining_categories','user_id','recentarticles'));
         }
         else
         {
             $user_id = 0;
-            return view('homepage', compact('categories','user_id'));
+            return view('homepage', compact('categories','user_id','recentarticles'));
         }
 	}
 //=======

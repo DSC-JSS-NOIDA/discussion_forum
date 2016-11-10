@@ -38,4 +38,10 @@ class Article extends Model
     	$article[0]->save();
     	return $article[0]->avg_rating;
     }
+
+    public function getRecent()
+    {
+        return Article::latest()->limit(5)->get();
+    }
+
 }

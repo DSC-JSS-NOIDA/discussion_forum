@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+
+@include('category')
+
  	{{ $category['category_name'] }}
  	<br>
  	@if(!count($articles))
