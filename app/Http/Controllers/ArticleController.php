@@ -92,7 +92,8 @@ class ArticleController extends Controller
             $user_id = -1;
             $username = 'guest';
         }
-       $article = Article::where('article_id', $id)->get();
+       $article = Article::join('users','users.user_id','=','articles.user_id')
+                    ->where('article_id', $id)->get();
         if(!count($article))
             return view('errors.503',compact('categories'));
         else

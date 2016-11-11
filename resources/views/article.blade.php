@@ -23,6 +23,8 @@
 		</div>
 		<!-- end of title div -->
 
+		<img src="{{ $article->image }}" />
+
 		<!-- start of rating div -->
 		<div>
 		<br>
