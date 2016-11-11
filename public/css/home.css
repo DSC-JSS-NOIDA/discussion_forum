@@ -1,4 +1,18 @@
-#home_bg {
-	width: 100%;
-	height: 600px;
+#no_article_text {
+	font-size: 24px;
+	color: green;
+}
+
+#no_article_subtext {
+	font-size: 16px;
+	color: #C9C9C9;
+	padding-left: 50px;
+}
+
+#remaining_categories_style {
+	font-size: large;
+}
+
+#remaining_categories_style:hover {
+	background-color: darkgreen;
 }

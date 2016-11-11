@@ -6,24 +6,53 @@
 
 @section('content')
 
-@include('category')
+    <div style="position: relative;">
+        <img src="{{ asset('img/politics.jpg') }}" id="home_bg">
+        @if(!Auth::check())
+            <a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Sign up/Sign in</a>
+        @endif
+    </div>
 
- 	{{ $category['category_name'] }}
- 	<br>
- 	@if(!count($articles))
- 		No articles Published under this category yet
-    @else
-    	@foreach($articles as $article)
-    		{{ ++$i }}
-    		<a href="/article/{{$article->article_id}}">
-    			 Title: {{ $article->title }}
-    			 Content: {!! substr($article->content,0,100) !!}
-    		</a>
-    		<br>
-    	@endforeach
+    <div class="row">
+        <div class="col s12">
+            @if(!count($articles))
+                No articles Published under this category yet
+            @else
+                @foreach($articles as $article)
+                    <br>
+                    <a href="/article/{{$article->article_id}}">
+                        <div class="card white">
+                            <div class="card-content black-text">
+                                <div class="row">
+                                    <div class="col s1">
+                                        <img src="{{$article->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+                                    </div>
+                                    <div class="col s3">
+                                        <span style="font-size: 16px;" class="green-text">{{ $article->username }}</span>
+                                        <br>
+                                        <span style="color: #C9C9C9">{{ $article->created_at }}</span>
+                                    </div>
+                                    <div class="col s1 offset-s7">
+                                        <div class="chip">
+                                            {{ $article->category_name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <span class="card-title" style="font-weight: 500; font-size: 30px; color: #333333">{{ $article->title }}</span>
+                                <br>
+                                <span style="color: #333333; font-size: 18px; font-weight: 100;">{!! $article->rawcontent !!}</span>
+                                <br>
+                                <a href="/article/{{ $article->article_id }}"><span>Read More</span></a>
+                            </div>
+                        </div>  
+                    </a>
+                @endforeach
+            @endif
+        </div>
+    </div>
 
-    	{{ $articles->links() }}
-    @endif    
+    {{ $articles->links() }}   
 @endsection
 
 @section('js')

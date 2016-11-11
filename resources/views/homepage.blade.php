@@ -6,9 +6,12 @@
 @endsection
 
 @section('content')
-	<br>
-	<div>
-		<img src="{{ asset('img/home_bg1.jpg') }}" id="home_bg">
+	
+	<div style="position: relative;">
+		<img src="{{ asset('img/home_cover.jpg') }}" id="home_bg">
+		@if(!Auth::check())
+			<a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Sign up/Sign in</a>
+		@endif
 	</div>
 
 
@@ -18,7 +21,15 @@
 			
 			@if(Auth::check())
 				@if(!count($my_articles))
-					<p>You have not yet created an article</p>
+					<div class="row">
+						<div class="col s6 offset-s4">
+							<p id="no_article_text">You have not yet created an article</p>
+						</div>
+						<br>
+						<div class="col s6 offset-s4">
+							<span id="no_article_subtext">(Choose a category and start writing)</span>
+						</div>
+					</div>
 				@else
 					@foreach($my_articles as $my_article)
 					<a href="/article/{{ $my_article->article_id }}">
@@ -96,7 +107,7 @@
 			    <li class="waves-effect waves-light">You have written articles for Each Category</li>
     		@else
       			@foreach($remaining_categories as $remaining_category)
-      				<li class="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article">{{ $remaining_category }}</a></li>
+      				<li class="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article" id="remaining_categories_style">{{ $remaining_category }}</a></li>
 	      		@endforeach
       		@endif
       	@endif
