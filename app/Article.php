@@ -41,7 +41,10 @@ class Article extends Model
 
     public function getRecent()
     {
-        return Article::latest()->limit(5)->get();
+        return Article::join('categories','categories.category_id','=','articles.category_id')
+                ->join('users','users.user_id','=','articles.user_id')
+                ->select('categories.category_name','articles.*','users.username')
+                ->latest()->limit(5)->get();
     }
 
 }

@@ -6,7 +6,7 @@
 
 @section('content')
     Leaderboard
-    <table class="table" >
+    <table class="table striped bordered responsive-table highlight">
     <tr>
     	<th>username </th>
     
