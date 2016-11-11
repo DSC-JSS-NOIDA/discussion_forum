@@ -52,7 +52,8 @@
         </div>
     </div>
 
-    {{ $articles->links('layouts.app') }}   
+    @include('pagination.default', ['paginator' => $articles])
+
 @endsection
 
 @section('js')
