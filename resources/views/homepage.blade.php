@@ -6,8 +6,6 @@
 @endsection
 
 @section('content')
-	
-
 	<br>
 	<div>
 		<img src="{{ asset('img/home_bg1.jpg') }}" id="home_bg">
@@ -28,7 +26,7 @@
 							<div class="card-content black-text">
 								<div class="row">
 									<div class="col s1">
-										<img src="{{ asset('img/profile_icon.gif') }}" alt="" class="circle" style="width: 40px; height: 40px;">
+										<img src="{{ Auth::user()->image }}" alt="" class="circle" style="width: 40px; height: 40px;">
 									</div>
 									<div class="col s3">
 										<span style="font-size: 16px;" class="green-text">{{ Auth::user()->username }}</span>
@@ -59,7 +57,7 @@
 							<div class="card-content black-text">
 								<div class="row">
 									<div class="col s1">
-										<img src="{{ asset('img/profile_icon.gif') }}" alt="" class="circle" style="width: 40px; height: 40px;">
+										<img src="{{$recentarticle->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
 									</div>
 									<div class="col s3">
 										<span style="font-size: 16px;" class="green-text">{{ $recentarticle->username }}</span>
@@ -95,7 +93,7 @@
     	<ul>
     	@if(Auth::check())
     		@if(count($my_articles)==count($categories))
-			    <li class="waves-effect waves-light"><a class="create_article">You have written articles for Each Category</a></li>
+			    <li class="waves-effect waves-light">You have written articles for Each Category</li>
     		@else
       			@foreach($remaining_categories as $remaining_category)
       				<li class="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article">{{ $remaining_category }}</a></li>

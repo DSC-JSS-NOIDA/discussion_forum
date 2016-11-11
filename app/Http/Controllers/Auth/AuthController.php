@@ -54,7 +54,6 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -90,9 +89,10 @@ class AuthController extends Controller
 
         $person = User::where('email', $user->getEmail())->first();  
        
+        
        if(!count($person))
        {
-        $person = User::create(['email'=>$user->getEmail(),'password'=>$user->getEmail(),'username'=>$user->getName(),'status'=>1]);
+        $person = User::create(['email'=>$user->getEmail(),'image'=>$user->getAvatar(),'username'=>$user->getName(),'status'=>1]);
         //login for the first time
        }
         $person = User::where('email', $user->getEmail())->first();
