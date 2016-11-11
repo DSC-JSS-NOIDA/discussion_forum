@@ -29,6 +29,7 @@ class CategoryController extends Controller
             return view('errors.503');
         $category = $categories[0];
         $articles = Article::join('users','users.user_id','=','articles.user_id')
+                    ->join('categories','categories.category_id','=','articles.category_id')
                     ->where('articles.category_id',$id)
                     ->where('users.status',1)
                     ->orderBy('articles.article_id','DESC')
