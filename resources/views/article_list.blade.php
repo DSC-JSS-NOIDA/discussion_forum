@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    {{ $articles->links() }}   
+    {{ $articles->links('layouts.app') }}   
 @endsection
 
 @section('js')

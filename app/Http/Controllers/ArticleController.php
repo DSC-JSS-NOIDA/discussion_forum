@@ -32,12 +32,13 @@ class ArticleController extends Controller
      */
     public function create($category)
     {
+        $categories = $category_model->show();
         $category = Category::where('category_name',$category)->get();
         // var_dump($category);
         $category_id = $category[0]['category_id'];
         // echo $category_id;
         $status = "new";
-        return view('editor',compact('status','category_id'));
+        return view('editor',compact('status','category_id','categories'));
     }
 
     /**
@@ -93,7 +94,7 @@ class ArticleController extends Controller
         }
        $article = Article::where('article_id', $id)->get();
         if(!count($article))
-            return view('errors.503');
+            return view('errors.503',compact('categories'));
         else
             $article = $article[0];
             $author = $article->user_id;
@@ -101,7 +102,7 @@ class ArticleController extends Controller
             $author = User::where('user_id',$author)->get();
             // var_dump($author);
             if($author[0]->status==0)
-               return view('errors.503');
+               return view('errors.503',compact('categories'));
             $comments = Comment::join('users', 'users.user_id','=','comments.user_id')
                         ->select('users.username','comments.*')
                         ->where('comments.article_id', $id)
@@ -128,6 +129,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        $category_model = new Category;
         if(Auth::check())
         {
             $user = Auth::user();
@@ -138,14 +140,14 @@ class ArticleController extends Controller
             ])
             ->get(); 
             if(!count($article))
-                return view('errors.503');
+                return view('errors.503',compact('categories'));
             else
             {
-                return view('editor',compact('article'));
+                return view('editor',compact('article','categories'));
             }
         }
         else
-            return view('errors.503');
+            return view('errors.503',compact('categories'));
     }
 
     /**
@@ -157,6 +159,8 @@ class ArticleController extends Controller
      */
     public function update(Request $request)
     {
+        $category_model = new Category;
+        $categories = $category_model->show();
         if(Auth::check())
         {
             $user = Auth::user();
@@ -166,7 +170,7 @@ class ArticleController extends Controller
                 ['user_id','=',$user_id],
             ]);
             if(!count($article))
-                return view('errors.503');
+                return view('errors.503',compact('categories'));
             else
             {
                 //update article
@@ -177,7 +181,7 @@ class ArticleController extends Controller
             }
         }
         else
-            return view('errors.503');
+            return view('errors.503',compact('categories'));
     }
 
     /**

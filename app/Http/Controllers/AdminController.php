@@ -22,18 +22,20 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $category_model = new Category;
+        $categories = $category_model->show();
         if(Auth::check())
         {
             if(Auth::user()->admin==1)
             {
                 $users = User::orderBy('admin','desc')->orderBy('status')->orderBy('email')->get();
-                return view('admin.home',compact('users'));
+                return view('admin.home',compact('users','categories'));
             }
             else
-                return view('errors.503');
+                return view('errors.503',compact('categories'));
         }
         else
-            return view('errors.503');
+            return view('errors.503',compact('categories'));
     }
 
     /**
@@ -54,6 +56,8 @@ class AdminController extends Controller
      */
     public function spam(Request $request)
     {
+        $category_model = new Category;
+        $categories = $category_model->show();
         $user_id = $request->user_id;
         $user_id = (int)$user_id;
         // return var_dump($user_id);
