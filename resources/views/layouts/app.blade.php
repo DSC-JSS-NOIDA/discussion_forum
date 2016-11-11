@@ -32,11 +32,7 @@
 
     <div>
       <!-- Dropdown Structure -->
-  		<ul id="dropdown1" class="dropdown-content">
-          <li><a href="{{ url('/rules') }}">Rules</a></li>
-  	  		<li><a href="{{ url('auth/logout') }}">Logout</a></li>
-  		</ul>
-      <ul id="dropdown2" class="dropdown-content">
+      <ul id="dropdown1" class="dropdown-content">
         @foreach($categories as $category)
           <li>
             <a href="/category/{{$category->category_id}}" ref="">
@@ -63,7 +59,7 @@
                 @endif
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
-                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
                 <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
         			</ul>

@@ -6,7 +6,8 @@
 
 @section('content')
     
-    <img src="{{ asset('img/rules1.png') }}" id="rules">
+    <br>
+    <img src="{{ asset('img/leader1.png') }}" id="leader">
 
 
 
@@ -28,7 +29,7 @@
 
     <table class="table striped bordered responsive-table highlight">
     <tr>
-    	<th>username </th>
+    	<th>Author </th>
     
     	@foreach($categories as $cat)
     		<th>{{$cat->category_name}}</th>
@@ -42,7 +43,10 @@
     	@endforeach
     	
     		<tr>
-    			<td>{{$user->username}}</td>
+    			<td>
+                    <img src="{{$user->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+                    {{$user->username}}
+                </td>
     		@foreach($articles as $article)
     			@foreach($categories as $c)
     				@if(!$flags[$c->category_id] && $article->user_id == $user->user_id && $article->category_id==$c->category_id)
