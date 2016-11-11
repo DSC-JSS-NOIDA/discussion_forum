@@ -5,7 +5,27 @@
 @endsection
 
 @section('content')
-    Leaderboard
+    
+    <img src="{{ asset('img/rules1.png') }}" id="rules">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <table class="table striped bordered responsive-table highlight">
     <tr>
     	<th>username </th>

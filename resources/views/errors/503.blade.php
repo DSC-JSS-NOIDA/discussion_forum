@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    Error Page
+    <br>
+    <img src="{{ asset('img/404.png') }}" style="padding-left: 15%;">
 @endsection
 
 @section('js')

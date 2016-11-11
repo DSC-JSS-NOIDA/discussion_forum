@@ -30,7 +30,7 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-    <div class="navbar-fixed">
+    <div>
       <!-- Dropdown Structure -->
   		<ul id="dropdown1" class="dropdown-content">
           <li><a href="{{ url('/rules') }}">Rules</a></li>
@@ -48,21 +48,44 @@
   	    <nav class="white">
       		<div class="nav-wrapper container">
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
-        			<ul id="nav-mobile" class="right hide-on-med-and-down">
-        				<li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        			
+              <ul class="right hide-on-med-and-down">
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
+                @else
+                  <!-- Dropdown Trigger -->
+        				  <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
+                @endif
+                <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 @if (!(Auth::check()))
                   <li><a class="nav-menu black-text" href="{{ url('/rules') }}">Rules</a></li>
                 @endif
-          			<li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
+                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
+                <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-          			<!-- Authentication Links -->
-  	                    @if (!(Auth::check()))
-  	                        <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
-  	                    @else
-  	                        <!-- Dropdown Trigger -->
-        						<li><a class="dropdown-button black-text" href="#!" data-activates="dropdown1">{{ Auth::user()->username }}<i class="material-icons right">arrow_drop_down</i></a></li>
-  	                    @endif
+                <!-- Authentication Links -->
+                <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
         			</ul>
+              
+              <ul id="mobile-demo" class="side-nav">
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
+                @else
+                  <!-- Dropdown Trigger -->
+                  <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
+                @endif
+                <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu black-text" href="{{ url('/rules') }}">Rules</a></li>
+                @endif
+                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
+                <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <!-- Authentication Links -->
+                <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+              </ul>
+              
       		</div>
     		</nav>
       </div>
@@ -74,19 +97,19 @@
 
       </div>
 
-      <footer class="page-footer white">
+      <footer class="page-footer green darken-1">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
                 <br>
-                <h4 class="">Other Links</h4>
+                <h4 class="white-text">Other Links</h4>
                 <ul>
-                  <li><a href="http://gdgjss.in">GDG Website</a></li>
+                  <li><a href="http://gdgjss.in" class="white-text">GDG Website</a></li>
                 </ul>
               </div>
               <div class="col l4 offset-l2 s12">
                 &nbsp;
-                <h4 class="center">Categories</h4>
+                <h4 class="center white-text">Categories</h4>
                 <div class="collection">
                   @foreach($categories as $category)
                     <a href="/category/{{$category->category_id}}" class="collection-item" ref=""><span class="badge">{{ $category->article_count }}</span>{{ $category->category_name }}</a>
@@ -95,9 +118,9 @@
               </div>
             </div>
           </div>
-          <div class="footer-copyright  white">
+          <div class="footer-copyright  green darken-2">
             <div class="container">
-            <span class="black-text">© GDG JSS Noida</span>
+            <span class="">© GDG JSS Noida</span>
             <img src="{{ asset('img/gdg_logo.png') }}" class="right">
             </div>
           </div>

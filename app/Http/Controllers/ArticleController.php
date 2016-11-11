@@ -32,6 +32,7 @@ class ArticleController extends Controller
      */
     public function create($category)
     {
+        $category_model = new Category;
         $categories = $category_model->show();
         $category = Category::where('category_name',$category)->get();
         // var_dump($category);
