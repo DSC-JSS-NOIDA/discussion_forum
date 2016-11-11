@@ -50,6 +50,9 @@
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
         			<ul id="nav-mobile" class="right hide-on-med-and-down">
         				<li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu black-text" href="{{ url('/rules') }}">Rules</a></li>
+                @endif
           			<li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
           			<!-- Authentication Links -->

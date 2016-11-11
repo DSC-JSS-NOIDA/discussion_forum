@@ -12,11 +12,35 @@
 @section('content')
 <!-- start of main div -->
 	<div class="container">
-	
-		<!-- Categories -->
-		@include('category')
+		<div class="row">
+			<div class="col s12">
+				<br>
+				<img src="{{$article->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+				<h2>{{ $article->title }}</h2>
+			</div>
+		</div>
 
 		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!-- start of title div -->
 		<div>
 		<h2>Title: {{ $article->title }}</h2>
