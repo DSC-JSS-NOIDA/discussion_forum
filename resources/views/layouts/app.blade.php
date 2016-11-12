@@ -91,11 +91,11 @@
               <div class="col l6 s12">
                 <br>
                 <h4 class="white-text" style="font-weight: 200; padding-top: 1px;">Other Links</h4>
-                <ul class="col s2 offset-s1">
-                  <li><a href="http://gdgjss.in"><img src="{{ asset('img/gdg.png') }}" width="50px"/></a></li>
-                  <li><a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}" width="50px"/></a></li>
-                  <li><a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="50px"/></a></li>
-                </ul>
+                <!-- <ul class="col s2 offset-s1"> -->
+                  <a href="http://gdgjss.in"><img src="{{ asset('img/gdg.png') }}" style="float:left;" width="50px"/></a>
+                  <a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}"  width="50px"/></a>
+                  <a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="42px"/></a>
+                <!-- </ul> -->
               </div>
               <div class="col l4 offset-l2 s12">
                 &nbsp;
