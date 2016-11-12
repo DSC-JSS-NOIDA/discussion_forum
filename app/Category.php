@@ -13,7 +13,7 @@ class Category extends Model
     protected $primaryKey = 'category_id';
     public function show()
     {
-    	return Category::join('articles','articles.category_id','=','categories.category_id')
+    	return Category::leftJoin('articles','articles.category_id','=','categories.category_id')
     		->select('categories.category_id','categories.category_name',DB::raw('count(*) as article_count'))
     		->groupBy('articles.category_id')
     		// ->count();
