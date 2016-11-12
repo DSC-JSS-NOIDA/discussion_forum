@@ -47,7 +47,7 @@
     	@foreach($categories as $c)
     			<td>
     			@if($flags[$c->category_id])
-    					<a href="/article/{{$a[$c->category_id]['id']}}">{{$a[$c->category_id]['title']}}</a>
+    					<a href="/article/{{$a[$c->category_id]['id']}}">{{substr($a[$c->category_id]['title'],0,20)}}</a>
     			@endif
     			</td>
     	@endforeach
