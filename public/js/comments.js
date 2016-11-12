@@ -2,6 +2,7 @@ $(document).ready(function(){
     $(".confirm_edit_comment").hide();
 	
     $(".edit_comment").click(function(){
+        console.log(1);
         var id = $(this).attr("id").substring(4);
         $("#content"+id).hide();
         $("#input"+id).show();
@@ -62,7 +63,7 @@ $(document).ready(function(){
                 success: function(data){
                     if(data=="success")
                     {
-                        $("#comment_insert").html('<hr> <h4 >'+username+'</h4> <input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="'+comment+'" hidden></input>            <p id="content{{$comment->comment_id}}">'+comment+'</p>            <span>Now</span>');
+                        $("#comment_insert").html('<hr> <h4>'+username+'</h4> <input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="'+comment+'" hidden></input>            <p id="content{{$comment->comment_id}}">'+comment+'</p>            <span>Now</span>');
                     }
                 }
            });
