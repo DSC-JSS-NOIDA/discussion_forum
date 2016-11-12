@@ -95,7 +95,9 @@ class ArticleController extends Controller
         }
        $article = Article::join('users','users.user_id','=','articles.user_id')
                     ->join('categories','categories.category_id','=','articles.category_id')
+                    ->select('categories.category_name','users.username','users.image','articles.*')
                     ->where('article_id', $id)->get();
+                    // return $article;
         if(!count($article))
             return view('errors.503',compact('categories'));
         else
