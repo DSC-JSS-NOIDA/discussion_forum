@@ -50,9 +50,9 @@
                 @endif
             </div>
         </div>
+    @include('pagination.default', ['paginator' => $articles])
     </div>
 
-    @include('pagination.default', ['paginator' => $articles])
 
 @endsection
 
