@@ -13,6 +13,7 @@
 
     <table class="bordered striped">
     <tr>
+        <th>Sr.</th>
     	<th>Author </th>
     
     	@foreach($categories as $cat)
@@ -21,12 +22,13 @@
     </tr>
     	@foreach($users as $user)
     	
-    	<?php $flags  = array();$a= array(); ?>
+    	<?php $flags  = array();$a= array();$k=0; ?>
     	@foreach($categories as $c)
     	<?php  $flags[$c->category_id]=0; ?>
     	@endforeach
     	
     		<tr>
+                <td style="font-size: 16px;"><?php echo $k;$k++; ?></td>
     			<td style="font-size: 16px;">
                     <img src="{{$user->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
                     &nbsp;
@@ -45,7 +47,7 @@
     		@endforeach
     		
     	@foreach($categories as $c)
-    			<td>
+    			<td style="font-size: 16px;">
     			@if($flags[$c->category_id])
     					<a href="/article/{{$a[$c->category_id]['id']}}">{{substr($a[$c->category_id]['title'],0,20)}}...</a>
     			@endif
