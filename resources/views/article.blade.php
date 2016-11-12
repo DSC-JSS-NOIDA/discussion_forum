@@ -25,8 +25,8 @@
 					<div class="col s4">
 						<span style="font-size: 20px; color: green;">{{ $article->username }}</span>
 						<br>
-						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
+						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
 					<div class="col s3 offset-s3">
 						<div class="rateyo"></div>
@@ -57,19 +57,6 @@
 
 
 
-
-
-
-
-
-
-		<!-- start of title div -->
-		<div>
-		<h2>Title: {{ $article->title }}</h2>
-		</div>
-		<!-- end of title div -->
-
-		<img src="{{ $article->image }}" />
 
 		<!-- start of rating div -->
 		<div>
@@ -115,12 +102,6 @@
 		</div>
 		<!-- end of rating div -->
 
-		<!-- start of content div -->
-		<div>
-		<br>
-		<h2>Content:</h2>
-		 {!! $article->content !!}
-		</div>
 		
 		<!-- start of reference div -->
 		<div>

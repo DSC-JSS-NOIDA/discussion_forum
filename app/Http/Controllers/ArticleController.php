@@ -94,6 +94,7 @@ class ArticleController extends Controller
             $username = 'guest';
         }
        $article = Article::join('users','users.user_id','=','articles.user_id')
+                    ->join('categories','categories.category_id','=','articles.category_id')
                     ->where('article_id', $id)->get();
         if(!count($article))
             return view('errors.503',compact('categories'));
@@ -132,6 +133,7 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $category_model = new Category;
+        $categories = $category_model->show();
         if(Auth::check())
         {
             $user = Auth::user();

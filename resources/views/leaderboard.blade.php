@@ -6,11 +6,12 @@
 
 @section('content')
     
+    <div class="container">
     <br>
     <img src="{{ asset('img/leader1.png') }}" id="leader">
     <br><br>
 
-    <table class="highlight bordered">
+    <table class="bordered striped">
     <tr>
     	<th>Author </th>
     
@@ -53,7 +54,8 @@
     			
     		</tr>
     	@endforeach		
-   </table>
+    </table>
+    </div>
 @endsection
 
 @section('js')
