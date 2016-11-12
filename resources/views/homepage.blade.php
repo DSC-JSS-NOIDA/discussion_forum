@@ -8,7 +8,9 @@
 @section('content')
 	
 	<div style="position: relative;">
-		<img src="{{ asset('img/home_cover.jpg') }}" id="home_bg">
+		<picture>
+			<source src="{{ asset('img/home_cover.jpg') }}" type="">
+		</picture>
 		@if(!Auth::check())
 			<a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Sign up/Sign in</a>
 		@endif
