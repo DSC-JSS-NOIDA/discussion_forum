@@ -92,7 +92,9 @@
                 <br>
                 <h4 class="white-text">Other Links</h4>
                 <ul>
-                  <li><a href="http://gdgjss.in" class="white-text">GDG Website</a></li>
+                  <li><a href="http://gdgjss.in" class="white-text"><img src="{{ asset('img/gdg.png') }}" width="50px" style="float:left" /><h5>GDG Website</h5></a></li><br>
+                  <li><a href="http://facebook.com/gdgjss" class="white-text"><img src="{{ asset('img/fb.png') }}" width="50px" style="float:left" /><h5>Facebook</h5></a></li>
+                  <li><a href="http://github.com/gdg-jss-noida" class="white-text"><img src="{{ asset('img/git.png') }}" width="50px" style="float:left" /><h5>Github</h5></a></li>
                 </ul>
               </div>
               <div class="col l4 offset-l2 s12">
