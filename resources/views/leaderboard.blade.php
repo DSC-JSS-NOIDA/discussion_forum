@@ -15,14 +15,14 @@
     <tr>
         <th>Sr.</th>
     	<th>Author </th>
-    
+    <?php $k=1; ?>
     	@foreach($categories as $cat)
     		<th>{{$cat->category_name}}</th>
     	@endforeach
     </tr>
     	@foreach($users as $user)
     	
-    	<?php $flags  = array();$a= array();$k=0; ?>
+    	<?php $flags  = array();$a= array(); ?>
     	@foreach($categories as $c)
     	<?php  $flags[$c->category_id]=0; ?>
     	@endforeach
