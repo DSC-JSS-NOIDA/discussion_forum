@@ -64,6 +64,7 @@
 				@endif
 			@else
 				@if(count($recentarticles))
+					<h3>Recent Articles</h3>
 					@foreach($recentarticles as $recentarticle)
 						<a href="/article/{{ $recentarticle->article_id }}">
 							<div class="card white">

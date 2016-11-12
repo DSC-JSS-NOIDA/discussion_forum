@@ -14,6 +14,7 @@
                 </textarea>
                 <input type="number" name="category_id" value="{{$category_id}}" hidden="">
                 {{ csrf_field() }}
+                <label>References</label>&nbsp;
                 <input type="text" name="reference" required="" />
                 <input type="submit" name="submit" class="btn" value="PUBLISH"/>
             </form>

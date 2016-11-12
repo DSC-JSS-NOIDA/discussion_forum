@@ -39,7 +39,7 @@
 						{!! $article->content !!}
 					</div>
 					<div class="col s10 offset-s1">
-						<h4 id="refrence">Refrences</h4>
+						<h4 id="refrence">References</h4>
 						<span>{{ $article->reference }}</span>
 					</div>
 				</div>
