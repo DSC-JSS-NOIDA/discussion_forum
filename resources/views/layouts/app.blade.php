@@ -32,7 +32,7 @@
 
     <div>
       <!-- Dropdown Structure -->
-      <ul id="dropdown" class="dropdown-content">
+      <ul id="dropdown" class="dropdown-content" style="top: 65px;">
         @foreach($categories as $category)
           <li>
             <a href="/category/{{$category->category_id}}" ref="">

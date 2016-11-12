@@ -56,7 +56,6 @@
 									@else
 										@foreach($comments as $comment)
 											
-											{{$comment->image}}
 											<img src="{{ $comment->image }}">
 											<span style="font-size: 20px; color: green;">{{ $comment->username }}</span><br>
 											<span style="color: #8a8a8a;">{{ $comment->created_at }}</span>
