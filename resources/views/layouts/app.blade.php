@@ -96,6 +96,9 @@
                   <a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}"  width="50px"/></a>
                   <a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="42px"/></a>
                 <!-- </ul> -->
+                Contact:8287097779(Shashank Agarwal)<br>
+                &emsp;&emsp;&emsp;&emsp;
+                9654379609(Himanshu Agarwal)
               </div>
               <div class="col l4 offset-l2 s12">
                 &nbsp;

@@ -30,7 +30,6 @@
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
 					
-					@if(Auth::check())
 						<div class="col s3 offset-s2">
 							<div style="font-size: 20px;">
 								@if($article->avg_rating==-1)
@@ -40,6 +39,7 @@
 									<span id="avg_rating">{{ $article->avg_rating }}</span>
 								@endif
 							</div>
+						@if(Auth::check())
 							<div>
 								@if($rating_by_me==-1)
 									<span style="color: green;">Your rating :</span>

@@ -63,7 +63,7 @@ class ArticleController extends Controller
         $article->category_id = $category_id;
         $article->title = $request->title;
         $article->content = $request->content;
-        $article->rawcontent = strip_tags($request->content,"<p><strong>");
+        $article->rawcontent = strip_tags($request->content,"");
         $article->reference = $request->reference;
         $article->avg_rating = -1;
         $article->no_of_rating = 0;
@@ -181,7 +181,7 @@ class ArticleController extends Controller
             {
                 //update article
                 $data = $request->only('title','content','reference');
-                $data["rawcontent"]=strip_tags($request->content,"<p><strong>");                
+                $data["rawcontent"]=strip_tags($request->content,"");                
                 $article -> update($data);
                 return redirect('/article/'.$request->article_id);
             }
