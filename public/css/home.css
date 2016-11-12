@@ -21,13 +21,3 @@
 	color: #333333 !important;
 }
 
-#background {
-	background-image: url('../img/home_cover.jpg');
-}
-
-
-@media only screen and (min-width: 400px) {
-	#background {
-		background-image: url('../img/home_cover.jpg');
-	}
-}
