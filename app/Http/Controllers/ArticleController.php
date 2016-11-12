@@ -109,7 +109,7 @@ class ArticleController extends Controller
             if($author[0]->status==0)
                return view('errors.503',compact('categories'));
             $comments = Comment::join('users', 'users.user_id','=','comments.user_id')
-                        ->select('users.username','comments.*')
+                        ->select('users.username','comments.*','users.image')
                         ->where('comments.article_id', $id)
                         ->where('users.status',1)
                         ->get();

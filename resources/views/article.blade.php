@@ -57,7 +57,6 @@
 									@else
 										@foreach($comments as $comment)
 											
-											{{$comment->image}}
 											<img src="{{ $comment->image }}">
 											<span style="font-size: 16px;">{{ $comment->username }}</span>>
 											<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
