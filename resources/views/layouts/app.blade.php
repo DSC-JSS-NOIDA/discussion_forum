@@ -81,11 +81,9 @@
       </div>
 
 
-	    <div class="container">
         
         @yield('content')
 
-      </div>
 
       <footer class="page-footer green darken-1">
           <div class="container">
@@ -111,7 +109,7 @@
           <div class="footer-copyright  green darken-2">
             <div class="container">
             <span class="">© GDG JSS Noida</span>
-            <img src="{{ asset('img/gdg_logo.png') }}" class="right">
+            <img src="{{ asset('img/gdg_logo.png') }}" class="right" style="padding-top: 7px;">
             </div>
           </div>
         </footer>

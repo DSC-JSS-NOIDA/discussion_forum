@@ -1,7 +1,3 @@
-body {
-	background-color: #FAFAFA;
-}
-
 #no_article_text {
 	font-size: 24px;
 	color: green;
@@ -19,4 +15,8 @@ body {
 
 #remaining_categories_style:hover {
 	background-color: darkgreen;
+}
+
+#raw_content {
+	color: #333333 !important;
 }

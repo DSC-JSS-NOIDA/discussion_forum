@@ -8,12 +8,13 @@
 	<meta property="og:description"   content="{!! $article->rawcontent !!}" />
 	<meta property="og:image"         content="http://njitvector.com/wp-content/uploads/2014/09/googledev.png" />
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/article_page.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/jquery.rateyo.min.css') }}">
 @endsection
 
 @section('content')
 <!-- start of main div -->
 	<div class="container">
-		<br><br><br>
+		<br><br>
 		<div class="row">
 			<div class="col s12">
 				
@@ -27,14 +28,20 @@
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
 					</div>
+					<div class="col s3 offset-s3">
+						<div class="rateyo"></div>
+					</div>
 					<div class="col s10 offset-s1">
 						<h2>{{ $article->title }}</h2>
+					</div>
+					<div class="col s10 offset-s1">
+						{!! $article->content !!}
 					</div>
 				</div>
 				
 			</div>
 		</div>
-
+	</div>
 		
 		
 
@@ -166,6 +173,7 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/jquery.rateyo.min.js') }}"></script>
 	<script>
 		var article_id = {{$article->article_id}};
 		var user_id = {{ $user_id }};

@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	$(".rating_by_me").click(function(){
+	
+    $(".rating_by_me").click(function(){
 		var rate = $(this).attr("id");
 		// console.log(category_name);
 		$.ajax({

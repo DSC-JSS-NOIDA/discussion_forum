@@ -16,6 +16,7 @@
 
 
 	<br>
+	<div class="container">
 	<div class="row">
 		<div class="col s12">
 			
@@ -51,9 +52,9 @@
 									</div>
 								</div>
 								
-								<span class="card-title" style="font-weight: 500; font-size: 30px; color: #333333">{{ $my_article->title }}</span>
+								<span class="card-title" style="font-weight: 300; font-size: 30px; color: #333333">{{ $my_article->title }}</span>
 								<br>
-								<span style="color: #333333; font-size: 18px; font-weight: 100;">{!! $my_article->rawcontent !!}</span>
+								<span id="raw_content">{!! $my_article->rawcontent !!}</span>
 								<br>
 								<a href="/article/{{ $my_article->article_id }}"><span>Read More</span></a>
 							</div>
@@ -83,7 +84,7 @@
 										</div>
 									</div>
 									
-									<span class="card-title" style="font-weight: 500; font-size: 30px; color: #333333">{{ $recentarticle->title }}</span>
+									<span class="card-title" style="font-weight: 300; font-size: 30px; color: #333333">{{ $recentarticle->title }}</span>
 									<br>
 									<span style="color: #333333; font-size: 18px; font-weight: 100;">{!! $recentarticle->rawcontent !!}</span>
 									<br>
@@ -91,6 +92,7 @@
 								</div>
 							</div>
 						</a>
+						<br>
 					@endforeach
 				@endif
 			@endif
@@ -116,6 +118,7 @@
     	</ul>
   	</div>
   	@endif
+  	</div>
 		
 @endsection
 
