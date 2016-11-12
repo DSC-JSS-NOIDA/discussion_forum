@@ -64,31 +64,33 @@
 			@else
 				@if(count($recentarticles))
 					@foreach($recentarticles as $recentarticle)
-						<div class="card white">
-							<div class="card-content black-text">
-								<div class="row">
-									<div class="col s1">
-										<img src="{{$recentarticle->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
-									</div>
-									<div class="col s3">
-										<span style="font-size: 16px;" class="green-text">{{ $recentarticle->username }}</span>
-										<br>
-										<span style="color: #C9C9C9">{{ $recentarticle->created_at }}</span>
-									</div>
-									<div class="col s1 offset-s7">
-										<div class="chip">
-											{{ $recentarticle->category_name }}
+						<a href="/article/{{ $recentarticle->article_id }}">
+							<div class="card white">
+								<div class="card-content black-text">
+									<div class="row">
+										<div class="col s1">
+											<img src="{{$recentarticle->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+										</div>
+										<div class="col s3">
+											<span style="font-size: 16px;" class="green-text">{{ $recentarticle->username }}</span>
+											<br>
+											<span style="color: #C9C9C9">{{ $recentarticle->created_at }}</span>
+										</div>
+										<div class="col s1 offset-s7">
+											<div class="chip">
+												{{ $recentarticle->category_name }}
+											</div>
 										</div>
 									</div>
+									
+									<span class="card-title" style="font-weight: 500; font-size: 30px; color: #333333">{{ $recentarticle->title }}</span>
+									<br>
+									<span style="color: #333333; font-size: 18px; font-weight: 100;">{!! $recentarticle->rawcontent !!}</span>
+									<br>
+									<a href="/article/{{ $recentarticle->article_id }}"><span>Read More</span></a>
 								</div>
-								
-								<span class="card-title" style="font-weight: 500; font-size: 30px; color: #333333">{{ $recentarticle->title }}</span>
-								<br>
-								<span style="color: #333333; font-size: 18px; font-weight: 100;">{!! $recentarticle->rawcontent !!}</span>
-								<br>
-								<a href="/article/{{ $recentarticle->article_id }}"><span>Read More</span></a>
 							</div>
-						</div>				
+						</a>
 					@endforeach
 				@endif
 			@endif

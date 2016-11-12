@@ -7,16 +7,28 @@
 	<meta property="og:title"         content="{{$article->title}}" />
 	<meta property="og:description"   content="{!! $article->rawcontent !!}" />
 	<meta property="og:image"         content="http://njitvector.com/wp-content/uploads/2014/09/googledev.png" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/article_page.css') }}">
 @endsection
 
 @section('content')
 <!-- start of main div -->
 	<div class="container">
+		<br><br><br>
 		<div class="row">
 			<div class="col s12">
-				<br>
-				<img src="{{$article->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
-				<h2>{{ $article->title }}</h2>
+				
+				<div class="row">
+					<div class="col s1 offset-s1">
+						<img src="{{$article->image}}" alt="" class="circle" style="width: 60px; height:60px;">
+					</div>
+					<div class="col s4">
+						<span style="font-size: 20px; color: green;">{{ $article->username }}</span>
+						<br>
+						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
+						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 

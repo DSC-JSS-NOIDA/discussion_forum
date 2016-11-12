@@ -47,12 +47,6 @@
               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         			
               <ul class="right hide-on-med-and-down">
-                @if (!(Auth::check()))
-                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
-                @else
-                  <!-- Dropdown Trigger -->
-        				  <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
-                @endif
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 @if (!(Auth::check()))
                   <li><a class="nav-menu black-text" href="{{ url('/rules') }}">Rules</a></li>
@@ -61,7 +55,13 @@
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
-                <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
+                @else
+                  <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                  <!-- Dropdown Trigger -->
+                  <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
+                @endif
         			</ul>
               
               <ul id="mobile-demo" class="side-nav">

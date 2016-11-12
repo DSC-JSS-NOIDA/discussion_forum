@@ -8,26 +8,9 @@
     
     <br>
     <img src="{{ asset('img/leader1.png') }}" id="leader">
+    <br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <table class="table striped bordered responsive-table highlight">
+    <table class="highlight bordered">
     <tr>
     	<th>Author </th>
     
@@ -43,9 +26,10 @@
     	@endforeach
     	
     		<tr>
-    			<td>
+    			<td style="font-size: 16px;">
                     <img src="{{$user->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
-                    {{$user->username}}
+                    &nbsp;
+                    <span style="top: -5px;">{{$user->username}}</span>
                 </td>
     		@foreach($articles as $article)
     			@foreach($categories as $c)
