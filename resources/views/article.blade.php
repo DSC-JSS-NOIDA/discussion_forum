@@ -50,24 +50,24 @@
 							<div class="row">
 								<div class="col s10 offset-s1">
 									<br>
-									<h4 style="color: #333333;">Responses:</h4>
-									<br>
+									<h4 style="color: #8a8a8a;">Comment</h4>
 									@if(!count($comments))
 										Be the first to review
 									@else
 										@foreach($comments as $comment)
 											
-											{{$comment->image}}
 											<img src="{{ $comment->image }}">
-											<span style="font-size: 16px;">{{ $comment->username }}</span>>
+											<span style="font-size: 20px; color: green;">{{ $comment->username }}</span><br>
+											<span style="color: #8a8a8a;">{{ $comment->created_at }}</span>
 											<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
 											<p id="content{{$comment->comment_id}}">{!! $comment->content !!}</p>
-											<span>{{ $comment->created_at }}</span>
 											@if($user_id==$comment->user_id)
-												<a class="edit_comment btn btn-default" id="edit{{$comment->comment_id}}">Edit</a>	
+												<a class="edit_comment right" id="edit{{$comment->comment_id}}">Edit</a>	
 												<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
 											@endif
+											<br>
 											<hr>
+											<br>
 										@endforeach
 										<div id="comment_insert"></div>
 									@endif
@@ -161,42 +161,7 @@
 	<!-- end of main div -->
 	<br>
 
-	<!-- start of comments div -->
-	<div class="container">
-	<h2>Comments:</h2>
-	@if(!count($comments))
-		Be the first to review
-	@else
-		@foreach($comments as $comment)
-			<hr>
-			<h4 >{{ $comment->username }}</h4>
-			<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
-			<p id="content{{$comment->comment_id}}">{!! $comment->content !!}</p>
-			<span>{{ $comment->created_at }}</span>
-			@if($user_id==$comment->user_id)
-				<a class="edit_comment btn btn-default" id="edit{{$comment->comment_id}}">Edit</a>	
-				<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
-			@endif
-		@endforeach
-		<div id="comment_insert"></div>
-	@endif
-
-	@if(Auth::check())
-		<input type="text" placeholder="Comment" id="new_comment_text">
-		<input type="submit" class="btn" value="COMMENT" id="new_comment_btn">
-		<script>var username = "{{ $username }}";</script>
-	@else
-		Please login to comment
-	@endif
-
-	<br>
-	@if(Auth::check() && $article->user_id==$user_id)
-		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
-		<!-- change the data href link after hosting -->
-		<div class="fb-share-button" data-href="http://articulus.gdgjss.in/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
-	@endif
-	</div>
-	<!-- end of comments div -->
+	
 @endsection
 
 @section('js')

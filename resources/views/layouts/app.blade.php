@@ -32,7 +32,7 @@
 
     <div>
       <!-- Dropdown Structure -->
-      <ul id="dropdown" class="dropdown-content">
+      <ul id="dropdown" class="dropdown-content" style="top: 65px;">
         @foreach($categories as $category)
           <li>
             <a href="/category/{{$category->category_id}}" ref="">
@@ -90,16 +90,16 @@
             <div class="row">
               <div class="col l6 s12">
                 <br>
-                <h4 class="white-text">Other Links</h4>
-                <ul>
-                  <li><a href="http://gdgjss.in" class="white-text"><img src="{{ asset('img/gdg.png') }}" width="50px" style="float:left" /><h5>GDG Website</h5></a></li><br>
-                  <li><a href="http://facebook.com/gdgjss" class="white-text"><img src="{{ asset('img/fb.png') }}" width="50px" style="float:left" /><h5>Facebook</h5></a></li>
-                  <li><a href="http://github.com/gdg-jss-noida" class="white-text"><img src="{{ asset('img/git.png') }}" width="50px" style="float:left" /><h5>Github</h5></a></li>
+                <h4 class="white-text" style="font-weight: 200; padding-top: 1px;">Other Links</h4>
+                <ul class="col s2 offset-s1">
+                  <li><a href="http://gdgjss.in"><img src="{{ asset('img/gdg.png') }}" width="50px"/></a></li>
+                  <li><a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}" width="50px"/></a></li>
+                  <li><a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="50px"/></a></li>
                 </ul>
               </div>
               <div class="col l4 offset-l2 s12">
                 &nbsp;
-                <h4 class="center white-text">Categories</h4>
+                <h4 class="center white-text" style="font-weight: 200;">Categories</h4>
                 <div class="collection">
                   @foreach($categories as $category)
                     <a href="/category/{{$category->category_id}}" class="collection-item" ref=""><span class="badge">{{ $category->article_count }}</span>{{ $category->category_name }}</a>
