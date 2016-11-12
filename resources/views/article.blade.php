@@ -29,8 +29,47 @@
 						<br>
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
-					<div class="col s3 offset-s3">
-						<div class="rateyo"></div>
+					
+					@if(Auth::check())
+						<div class="col s3 offset-s2">
+							<div style="font-size: 20px;">
+								@if($article->avg_rating==-1)
+									<span style="color: green;">Be the first to rate this!!!</span>
+								@else
+									<span style="color: green;">Rating:</span>
+									<span id="avg_rating">{{ $article->avg_rating }}</span>
+								@endif
+							</div>
+							<div>
+								@if($rating_by_me==-1)
+									<span style="color: green;">Your rating :</span>
+									<span id="my_rating" style="color: #c9c9c9;">You haven't rate it yet</span>
+								@else
+									<span style="color: green;" id="rated"> Your rating :</span>
+									<span id="my_rating">{{$rating_by_me}} </span>
+								@endif
+							</div>
+							
+							<div class="fixed-action-btn horizontal">
+							    <a class="btn-floating btn-large green">
+							      	<span style="font-size: 20px;"><i class="material-icons">star</i></span>
+							    </a>
+							    <ul style="padding-left: -10px;">
+							      	<li><a class="btn-floating red rating_by_me" id="1"><i class="material-icons">looks_one</i></a></li>
+							      	<li><a class="btn-floating pink rating_by_me" id="2"><i class="material-icons">looks_two</i></a></li>
+							      	<li><a class="btn-floating blue rating_by_me" id="3"><i class="material-icons">looks_3</i></a></li>
+							      	<li><a class="btn-floating green rating_by_me" id="4"><i class="material-icons">looks_4</i></a></li>
+							      	<li><a class="btn-floating green darken-2 rating_by_me" id="5"><i class="material-icons">looks_5</i></a></li>
+							    </ul>
+							</div>
+						@else
+							<div class="col s3 offset-s3">
+								<br>
+								<span style="color: #c9c9c9; font-size: 16px;">Please login to rate</span>
+							</div>
+						@endif
+
+
 					</div>
 					<div class="col s10 offset-s1">
 						<h2>{{ $article->title }}</h2>
@@ -56,7 +95,7 @@
 									@else
 										@foreach($comments as $comment)
 											
-											<img src="{{ $comment->image }}">
+											<img src="{{ $comment->image }}" class="circle" style="width: 30px;">
 											<span style="font-size: 20px; color: green;">{{ $comment->username }}</span><br>
 											<span style="color: #8a8a8a;">{{ $comment->created_at }}</span>
 											<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
@@ -72,9 +111,10 @@
 										<div id="comment_insert"></div>
 									@endif
 
+									<br>
 									@if(Auth::check())
-										<input type="text" placeholder="Comment" id="new_comment_text">
-										<input type="submit" class="btn" value="COMMENT" id="new_comment_btn">
+										<input type="text" placeholder="Comment" id="new_comment_text" id="cmnt">
+										<input type="submit" class="btn green" value="Comment" id="new_comment_btn">
 										<script>var username = "{{ $username }}";</script>
 									@else
 										Please login to comment
@@ -96,65 +136,6 @@
 			</div>
 		</div>
 	</div>
-		
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- start of rating div -->
-		<div>
-		<br>
-			<!-- avg rating -->
-			<div>
-				@if($article->avg_rating==-1)
-				<h3>Rating: <span id="avg_rating">Be the first to Rate this article</span></h3>
-				@else
-				<h2>Rating: <span id="avg_rating">{{ $article->avg_rating }}</span></h2>
-				@endif
-			</div>
-			<!-- end of avg rating -->
-			<!-- user's rating -->
-			@if(Auth::check())
-			<div>
-
-				@if($rating_by_me==-1)
-					<h3> Your rating : <span id="my_rating">You haven't rate it yet</span></h3>
-				@else
-					<h3 id="rated"> Your rating : <span id="my_rating">{{$rating_by_me}} </span></h3>
-					<!-- Dropdown for rating -->
-				@endif
-						 <div class="dropdown">
-						  	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">	 Rate it
-						  		<span class="caret"></span>
-						  	</button>
-						  	<ul class="dropdown-menu">
-							   	@for($i=1;$i<=5;$i++)
-							    	<li>
-							    		<button class="rating_by_me" id="{{ $i }}">{{ $i }}</button>
-							    	</li>
-						    	@endfor
-							</ul>
-						</div>
-			</div>
-			@else
-			<h2>Login to rate this Article</h2>
-			<a type="button" class="btn btn-default" href="/auth/google">Login</a>
-			@endif
-
-			<!-- end of user's rating -->
-		</div>
-		<!-- end of rating div -->
-
 		
 	
 	</div>
