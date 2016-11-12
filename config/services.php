@@ -38,7 +38,7 @@ return [
     'google' => [
     'client_id' => '648364957965-srcn7jabbj107j71mqnbidch68j46egu.apps.googleusercontent.com',
     'client_secret' => 'T0HwIKnIXS78nst6pWsJ1Uvv',
-    'redirect' => 'http://localhost:8000/callback/google',
+    'redirect' => 'articulus.frb.io/callback/google',
     ],
 
 ];
