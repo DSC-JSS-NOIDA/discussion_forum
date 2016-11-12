@@ -81,6 +81,13 @@
 						<h4 id="refrence">Refrences</h4>
 						<span>{{ $article->reference }}</span>
 					</div>
+					<div class="col s10 offset-s1" style="padding-top: 20px;">
+						@if(Auth::check() && $article->user_id==$user_id)
+							<a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a>
+						@endif
+						<!-- change the data href link after hosting -->
+						<div class="fb-share-button right" data-href="http://articulus.gdgjss.in/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
+					</div>
 				</div>
 
 				<div class="row">
@@ -104,7 +111,6 @@
 												<a class="edit_comment right" id="edit{{$comment->comment_id}}">Edit</a>	
 												<a class="confirm_edit_comment btn btn-default" id="confirm{{$comment->comment_id}}" >confirm</a>			
 											@endif
-											<br>
 											<hr>
 											<br>
 										@endforeach
@@ -120,12 +126,6 @@
 										Please login to comment
 									@endif
 
-									<br>
-									@if(Auth::check() && $article->user_id==$user_id)
-										<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
-										<!-- change the data href link after hosting -->
-										<div class="fb-share-button" data-href="http://articulus.gdgjss.in/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
-									@endif
 								</div>
 							</div>
 							<br>
