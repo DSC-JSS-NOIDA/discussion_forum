@@ -32,7 +32,7 @@
 
     <div>
       <!-- Dropdown Structure -->
-      <ul id="dropdown1" class="dropdown-content">
+      <ul id="dropdown" class="dropdown-content">
         @foreach($categories as $category)
           <li>
             <a href="/category/{{$category->category_id}}" ref="">
@@ -50,32 +50,30 @@
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
-                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
-                @if(Auth::check())
-                <li><a class="black-text" href="{{url('/')}}">{{ Auth::user()->username }}</a></li>
-                <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
-        			   @else
-                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
-                @endif
-              </ul>
-              
-              <ul id="mobile-demo" class="side-nav">
                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else
+                  <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
                   <!-- Dropdown Trigger -->
                   <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
                 @endif
+        			</ul>
+              
+              <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                @if (!(Auth::check()))
-                  <li><a class="nav-menu black-text" href="{{ url('/rules') }}">Rules</a></li>
-                @endif
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
-                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
-                <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                @if (!(Auth::check()))
+                  <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
+                @else
+                  <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                  <!-- Dropdown Trigger -->
+                  <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
+                @endif
               </ul>
               
       		</div>
