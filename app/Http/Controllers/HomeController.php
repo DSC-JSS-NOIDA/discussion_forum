@@ -30,7 +30,7 @@ class HomeController extends Controller
             $user_id = $user->user_id;
         	$my_articles = Article::join('users','users.user_id','=','articles.user_id')
         				->join('categories','categories.category_id','=','articles.category_id')
-        				->select('users.username','users.user_id','articles.*','categories.category_name')
+        				->select('users.username','users.user_id','users.image','articles.*','categories.category_name')
         				->where('users.email',$user->email)
         				->get();
             $remaining_categories = array();

@@ -5,23 +5,71 @@
     <meta property="og:url"           content="http://localhost:8000/article/{{$article->article_id}}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="{{$article->title}}" />
-	<!-- <meta property="og:description"   content="{!! $article->content !!}" /> -->
+	<meta property="og:description"   content="{!! $article->rawcontent !!}" />
 	<meta property="og:image"         content="http://njitvector.com/wp-content/uploads/2014/09/googledev.png" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/article_page.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/jquery.rateyo.min.css') }}">
 @endsection
 
 @section('content')
 <!-- start of main div -->
 	<div class="container">
-	
-		<!-- Categories -->
-		@include('category')
-
+		<br><br>
+		<div class="row">
+			<div class="col s12">
+				
+				<div class="row">
+					<div class="col s1 offset-s1">
+						<img src="{{$article->image}}" alt="" class="circle" style="width: 60px; height:60px;">
+					</div>
+					<div class="col s4">
+						<span style="font-size: 20px; color: green;">{{ $article->username }}</span>
+						<br>
+						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
+						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
+					</div>
+					<div class="col s3 offset-s3">
+						<div class="rateyo"></div>
+					</div>
+					<div class="col s10 offset-s1">
+						<h2>{{ $article->title }}</h2>
+					</div>
+					<div class="col s10 offset-s1">
+						{!! $article->content !!}
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!-- start of title div -->
 		<div>
 		<h2>Title: {{ $article->title }}</h2>
 		</div>
 		<!-- end of title div -->
+
+		<img src="{{ $article->image }}" />
 
 		<!-- start of rating div -->
 		<div>
@@ -116,8 +164,8 @@
 	@if(Auth::check() && $article->user_id==$user_id)
 		<a clas=="btn" href="/editor/{{ $article->article_id }}">Edit</a>
 		<!-- change the data href link after hosting -->
-		<div class="fb-share-button" data-href="http://techblog.pagekite.me/article/{{$article->article_id}}" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div>
-		<div class="fb-share-button" data-href="http://www.google.com" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffacebook.com%2Fgdgjss&amp;src=sdkpreparse">Share</a></div>
+	Himanshu Agrawal
+<div class="fb-share-button" data-href="http://articulus.gdgjss.in/article/{{$article->article_id}}" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
 	@endif
 	</div>
 	<!-- end of comments div -->
@@ -125,6 +173,7 @@
 @endsection
 
 @section('js')
+    <script src="{{ asset('js/jquery.rateyo.min.js') }}"></script>
 	<script>
 		var article_id = {{$article->article_id}};
 		var user_id = {{ $user_id }};

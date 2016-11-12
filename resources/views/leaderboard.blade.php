@@ -5,10 +5,14 @@
 @endsection
 
 @section('content')
-    Leaderboard
-    <table class="table striped bordered responsive-table highlight">
+    
+    <br>
+    <img src="{{ asset('img/leader1.png') }}" id="leader">
+    <br><br>
+
+    <table class="highlight bordered">
     <tr>
-    	<th>username </th>
+    	<th>Author </th>
     
     	@foreach($categories as $cat)
     		<th>{{$cat->category_name}}</th>
@@ -22,7 +26,11 @@
     	@endforeach
     	
     		<tr>
-    			<td>{{$user->username}}</td>
+    			<td style="font-size: 16px;">
+                    <img src="{{$user->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+                    &nbsp;
+                    <span style="top: -5px;">{{$user->username}}</span>
+                </td>
     		@foreach($articles as $article)
     			@foreach($categories as $c)
     				@if(!$flags[$c->category_id] && $article->user_id == $user->user_id && $article->category_id==$c->category_id)

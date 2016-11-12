@@ -17,11 +17,19 @@ class LeaderboardController extends Controller
 {
     public function show()
     {
-
-    	$categories = Category::get();
+        $category_model = new Category;        
+        $categories = $category_model->show();
+    	// $categories = Category::get();
     	$users = User::get();
     	$articles =Article::get();
     
     	return view('leaderboard',compact('categories','users','articles'));
+    }
+
+    public function rules()
+    {
+        $category_model = new Category;        
+        $categories = $category_model->show();
+        return view('rules',compact('categories'));
     }
 }
