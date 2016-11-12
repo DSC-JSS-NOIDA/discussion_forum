@@ -27,6 +27,9 @@
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
 					</div>
+					<div class="col s10 offset-s1">
+						<h2>{{ $article->title }}</h2>
+					</div>
 				</div>
 				
 			</div>
