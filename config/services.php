@@ -36,9 +36,13 @@ return [
     ],
 
     'google' => [
-    'client_id' =>  '1086772092473-3tpu7crqlj6cbnnevoqe6bgitmgdekvu.apps.googleusercontent.com' ,
-    'client_secret' => '7PCoEN3J7M7JaaYd--8sby05',
-    'redirect' => 'http://localhost:8000/callback/google',
+    'client_id' => '648364957965-srcn7jabbj107j71mqnbidch68j46egu.apps.googleusercontent.com',
+    'client_secret' => 'T0HwIKnIXS78nst6pWsJ1Uvv',
+    'redirect' => 'http://articulus.frb.io/callback/google',
     ],
-
+    //  'google' => [
+    // 'client_id' =>  '1086772092473-3tpu7crqlj6cbnnevoqe6bgitmgdekvu.apps.googleusercontent.com' ,
+    // 'client_secret' => '7PCoEN3J7M7JaaYd--8sby05',
+    // 'redirect' => 'http://localhost:8000/callback/google',
+    // ],
 ];
