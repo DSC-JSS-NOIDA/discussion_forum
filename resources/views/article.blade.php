@@ -25,7 +25,7 @@
 					<div class="col s4">
 						<span style="font-size: 20px; color: green;">{{ $article->username }}</span>
 						<br>
-						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
+						<span style="color: #c9c9c9;">{{ $article->created_at->diffForHumans() }}</span>
 						<br>
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
