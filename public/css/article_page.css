@@ -1,0 +1,19 @@
+#article_page {
+	background-color: white;
+}
+
+
+#refrence {
+	color: #8a8a8a;
+}
+
+#cmnt {
+	border: 1px solid #8a8a8a;
+}
+
+input[type=text] {
+	border: 1px solid #9e9e9e;
+	border-radius: 3px;
+	height: 100px;
+	padding-left: 10px;
+}
