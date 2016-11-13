@@ -36,9 +36,12 @@ class CategoryController extends Controller
                     ->paginate(5);
         $category_model = new Category;
         $categories = $category_model->show();
+        if(Auth::check())
+            $my_article = Article::where('category_id',$id)->where('user_id',Auth::user()->user_id)->first();
+        // return $my_article;
         //var_dump($categories);
         //$articles = $articles->toArray();
-        return view('article_list',compact('categories','articles','category','i'));
+        return view('article_list',compact('categories','articles','category','i','my_article','id'));
     }
 
     /**
