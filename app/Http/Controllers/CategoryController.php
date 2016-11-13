@@ -30,10 +30,13 @@ class CategoryController extends Controller
         $category = $categories[0];
         $articles = Article::join('users','users.user_id','=','articles.user_id')
                     ->join('categories','categories.category_id','=','articles.category_id')
+                    ->select('articles.*','users.username','users.image','categories.category_id','categories.category_name')
                     ->where('articles.category_id',$id)
                     ->where('users.status',1)
                     ->orderBy('articles.article_id','DESC')
                     ->paginate(5);
+        // print_r($articles);
+        // return;
         $category_model = new Category;
         $categories = $category_model->show();
         if(Auth::check())
