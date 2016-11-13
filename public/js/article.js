@@ -17,6 +17,7 @@ $(document).ready(function(){
     		success: function(data){
     			$("#my_rating").html(data.my_rating);
                 $("#avg_rating").html(data.avg);
+                $("#raters").html(data.raters);
     		}
 		});
 	});

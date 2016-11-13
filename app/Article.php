@@ -10,6 +10,7 @@ class Article extends Model
     	'user_id', 'category_id', 'title', 'content', 'reference', 'avg_rating', 'no_of_rating',
     ];
     protected $primaryKey = 'article_id';
+
     public function increment_raters($article_id)
     {
     	$article = Article::where('article_id',$article_id)->get();
@@ -45,6 +46,11 @@ class Article extends Model
                 ->join('users','users.user_id','=','articles.user_id')
                 ->select('categories.category_name','articles.*','users.username','users.image')
                 ->latest()->limit(5)->get();
+    }
+
+    public function getRaters($id)
+    {
+         return Article::where('article_id',$id)->value('no_of_rating');
     }
 
 }
