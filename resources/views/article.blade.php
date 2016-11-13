@@ -36,7 +36,9 @@
 									<span style="color: green;">Be the first to rate this!!!</span>
 								@else
 									<span style="color: green;">Rating:</span>
-									<span id="avg_rating">{{ $article->avg_rating }}</span>
+									<span id="avg_rating">{{ $article->avg_rating }}</span><br>
+									<span style="color: green;">No.of ratings:</span>
+									<span id="raters">{{ $article->no_of_rating }}</span>
 								@endif
 							</div>
 						@if(Auth::check())
