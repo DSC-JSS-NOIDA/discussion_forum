@@ -2,7 +2,7 @@
 
 @section('css')
     <!-- Link CSS Files here -->
-    <meta property="og:url"           content="http://localhost:8000/article/{{$article->article_id}}" />
+    <meta property="og:url"           content="http://articulus.frb.io/article/{{$article->article_id}}" />
 	<meta property="og:type"          content="website" />
 	<meta property="og:title"         content="{{$article->title}}" />
 	<meta property="og:description"   content="{!! $article->rawcontent !!}" />
@@ -86,7 +86,7 @@
 							<a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a>
 						@endif
 						<!-- change the data href link after hosting -->
-						<div class="fb-share-button right" data-href="http://articulus.gdgjss.in/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
+						<div class="fb-share-button right" data-href="http://articulus.frb.io/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
 					</div>
 				</div>
 

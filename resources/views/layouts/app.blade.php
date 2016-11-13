@@ -49,7 +49,7 @@
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
+                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
                 @if (!(Auth::check()))
@@ -64,7 +64,7 @@
               <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Leaderboard</a></li>
+                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
                 @if (!(Auth::check()))
@@ -96,9 +96,7 @@
                   <a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}"  width="50px"/></a>
                   <a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="42px"/></a>
                 <!-- </ul> -->
-                Contact:8287097779(Shashank Agarwal)<br>
-                &emsp;&emsp;&emsp;&emsp;
-                9654379609(Himanshu Agarwal)
+                
               </div>
               <div class="col l4 offset-l2 s12">
                 &nbsp;
@@ -113,7 +111,8 @@
           </div>
           <div class="footer-copyright  green darken-2">
             <div class="container">
-            <span class="">© GDG JSS Noida</span>
+            <span class="">© GDG JSS Noida</span>&emsp;&emsp;
+            <strong>Contact:</strong>&emsp;8287097779(Shashank Agarwal)&emsp;&emsp;9654379609(Himanshu Agarwal)
             <img src="{{ asset('img/gdg_logo.png') }}" class="right" style="padding-top: 7px;">
             </div>
           </div>
