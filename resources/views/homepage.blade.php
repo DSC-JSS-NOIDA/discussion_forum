@@ -43,7 +43,7 @@
 									<div class="col s3">
 										<span style="font-size: 16px;" class="green-text">{{ Auth::user()->username }}</span>
 										<br>
-										<span style="color: #C9C9C9">{{ $my_article->created_at }}</span>
+										<span style="color: #C9C9C9">{{ $my_article->created_at->diffForHumans() }}</span>
 									</div>
 									<div class="col s1 offset-s7">
 										<div class="chip">
@@ -76,7 +76,7 @@
 										<div class="col s3">
 											<span style="font-size: 16px;" class="green-text">{{ $recentarticle->username }}</span>
 											<br>
-											<span style="color: #C9C9C9">{{ $recentarticle->created_at }}</span>
+											<span style="color: #C9C9C9">{{ $recentarticle->created_at->diffForHumans() }}</span>
 										</div>
 										<div class="col s1 offset-s7">
 											<div class="chip">

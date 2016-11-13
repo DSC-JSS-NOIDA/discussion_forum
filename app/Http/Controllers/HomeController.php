@@ -16,61 +16,13 @@ use App\Comment;
 class HomeController extends Controller
 {
 
-//converting timestamps
-
-
-function time_elapsed_string($ptime)
-{
-    $etime = time() - $ptime;
-
-    if ($etime < 1)
-    {
-        return '0 seconds';
-    }
-
-    $a = array( 365 * 24 * 60 * 60  =>  'year',
-                 30 * 24 * 60 * 60  =>  'month',
-                      24 * 60 * 60  =>  'day',
-                           60 * 60  =>  'hour',
-                                60  =>  'minute',
-                                 1  =>  'second'
-                );
-    $a_plural = array( 'year'   => 'years',
-                       'month'  => 'months',
-                       'day'    => 'days',
-                       'hour'   => 'hours',
-                       'minute' => 'minutes',
-                       'second' => 'seconds'
-                );
-
-    foreach ($a as $secs => $str)
-    {
-        $d = $etime / $secs;
-        if ($d >= 1)
-        {
-            $r = round($d);
-            return $r . ' ' . ($r > 1 ? $a_plural[$str] : $str) . ' ago';
-        }
-    }
-}
-
-
-
     public function index()
     {
-//<<<<<<< HEAD
     	$user = Auth::user();
         $category_model = new Category;
         $categories = $category_model->show();
-        //$categories = Category::get();
         $article_model = new Article;
         $recentarticles = $article_model->getRecent();
-        foreach ($recentarticles as &$recentarticle) {
-           // $recentarticle->created_at = \Carbon\Carbon::createFromTimeStamp(strtotime($recentarticle->created_at))->diffForHumans();
-           // echo \Carbon\Carbon::createFromTimeStamp(strtotime($recentarticle->created_at))->diffForHumans();
-        }
-        // return 0;
-        // return var_dump($recentarticles);
     	if($user)
         {
             $user_id = $user->user_id;
@@ -104,13 +56,4 @@ function time_elapsed_string($ptime)
             return view('homepage', compact('categories','user_id','recentarticles'));
         }
 	}
-
-
-
-//=======
-//   	$categories = Category::get();
-//    	return view('homepage', compact('categories'));
-    	
-//   }
-//>>>>>>> 7017bd9e9a79cc687905537c2be473ec73d60cea
 }

@@ -29,7 +29,7 @@
                                         <div class="col s3">
                                             <span style="font-size: 16px;" class="green-text">{{ $article->username }}</span>
                                             <br>
-                                            <span style="color: #C9C9C9">{{ $article->created_at }}</span>
+                                            <span style="color: #C9C9C9">{{ $article->created_at->diffForHumans() }}</span>
                                         </div>
                                         <div class="col s1 offset-s7">
                                             <div class="chip">
