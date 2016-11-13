@@ -106,7 +106,7 @@
 											
 											<img src="{{ $comment->image }}" class="circle" style="width: 30px;">
 											<span style="font-size: 20px; color: green;">{{ $comment->username }}</span><br>
-											<span style="color: #8a8a8a;">{{ $comment->created_at }}</span>
+											<span style="color: #8a8a8a;">{{ $comment->created_at->diffForHumans() }}</span>
 											<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
 											<p id="content{{$comment->comment_id}}">{!! $comment->content !!}</p>
 											@if($user_id==$comment->user_id)
