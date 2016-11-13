@@ -61,11 +61,21 @@
                 @endif
         			</ul>
               
+      <ul id="dropdown1" class="dropdown-content" style="top: 65px;">
+        @foreach($categories as $category)
+          <li>
+            <a href="/category/{{$category->category_id}}" ref="">
+              {{ $category->category_name }}
+            </a>
+          </li>
+        @endforeach
+      </ul>
+
               <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
-                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
