@@ -2,7 +2,7 @@
 /node_modules
 /public/storage
 /public/kcfinder
-/config/services.php
+config/services.php
 Homestead.yaml
 Homestead.json
 .env
