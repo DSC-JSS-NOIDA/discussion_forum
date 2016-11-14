@@ -201,8 +201,30 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+      $category_model = new Category;
+        $categories = $category_model->show();
+     if(Auth::check())
+        {
+            $user = Auth::user();
+            $user_id = $user->user_id;
+            $article_model = new Article;
+            $status = $article_model->check($user_id,$id);
+           if($status)
+              {
+                $article_model->delete_article($id);
+                $rating_model = new Rating;
+                $comment_model = new Comment;
+                $rating_model->deleteByArticleId($id);
+                $comment_model->deleteByArticleId($id);
+                return redirect('/');
+              } 
+            else
+               return view('errors.503',compact('categories'));
+                
+        }
+        else
+            return view('errors.503',compact('categories'));   
     }
 }

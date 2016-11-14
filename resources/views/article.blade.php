@@ -95,6 +95,7 @@
 					<div class="col s10 offset-s1" style="padding-top: 20px;">
 						@if(Auth::check() && $article->user_id==$user_id)
 							<a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a>
+							<a class="btn red" href="/delete/{{ $article->article_id }}">Delete</a>
 						@endif
 						<!-- change the data href link after hosting -->
 						<div class="fb-share-button right" data-href="http://articulus.frb.io/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>

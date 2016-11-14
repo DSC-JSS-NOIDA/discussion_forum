@@ -26,4 +26,9 @@ class Comment extends Model
     	return 0;
     }
 
+    public function deleteByArticleId($id)
+    {
+        Comment::where('article_id',$id)->delete();
+        return;
+    }
 }
