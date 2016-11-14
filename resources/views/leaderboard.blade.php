@@ -16,7 +16,7 @@
     </div>
     <br><br>
 
-    <table class="bordered striped responsive-table">
+    <table class="bordered striped">
     <div>
     <tr>
         <th>Sno.</th>
