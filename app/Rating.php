@@ -33,4 +33,9 @@ class Rating extends Model
             return -50;
         }
     }
+    public function deleteByArticleId($id)
+    {
+        Rating::where('article_id',$id)->delete();
+        return;
+    }
 }

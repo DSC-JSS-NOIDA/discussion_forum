@@ -31,7 +31,7 @@
     		<tr>
                 <td style="font-size: 16px;"><?php echo $k;$k++; ?></td>
     			<td style="font-size: 16px;">
-                    <img src="{{$user->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+                    <img src="{{$user->image}}" alt="" class="circle" style="width: 41px; height: 40px;">
                     &nbsp;
                     <span style="top: -5px;">{{$user->username}}</span>
                 </td>

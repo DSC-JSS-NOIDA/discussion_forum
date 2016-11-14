@@ -1,7 +1,6 @@
  <!DOCTYPE html>
 <html lang="en">
 	<head>
-  		
   		<title>Articulus</title>
   		<meta charset="utf-8">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +28,16 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-87390019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
     <div>
       <!-- Dropdown Structure -->
       <ul id="dropdown" class="dropdown-content" style="top: 65px;">
@@ -61,6 +69,16 @@
                 @endif
         			</ul>
               
+      <ul id="dropdown1" class="dropdown-content" style="top: 65px;">
+        @foreach($categories as $category)
+          <li>
+            <a href="/category/{{$category->category_id}}" ref="">
+              {{ $category->category_name }}
+            </a>
+          </li>
+        @endforeach
+      </ul>
+
               <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>

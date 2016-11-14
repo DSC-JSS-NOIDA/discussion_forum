@@ -25,7 +25,7 @@
 					<div class="col s10 l2">
 						<span id="article_name" style="color: green;">{{ $article->username }}</span>
 						<br>
-						<span id="article_date" style="color: #c9c9c9;">{{ $article->created_at }}</span>
+						<span id="article_date" style="color: #c9c9c9;">{{ $article->created_at->diffForHumans() }}</span>
 						<br>
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
@@ -39,6 +39,15 @@
 									<span id="avg_rating" class="rating_no">{{ $article->avg_rating }}</span><br>
 									<span style="color: green;" class="rating_text">No.of ratings:</span>
 									<span id="raters" class="rating_no">{{ $article->no_of_rating }}</span>
+									<!-- details of raters -->
+									<div id="raters_details">
+										@foreach($raters as $rater)
+											<img src="{{ $rater->image }}" class="circle" style="width: 30px;">
+											<span style = "position: relative; top: -9px;">{{ $rater->username}}&emsp;</span>
+											<span style="float: right;">{{ $rater->rating}}</span>
+											<br>
+										@endforeach
+									</div>
 								@endif
 							</div>
 						@if(Auth::check())
@@ -85,6 +94,7 @@
 					<div class="col s10 offset-s1" style="padding-top: 20px;">
 						@if(Auth::check() && $article->user_id==$user_id)
 							<a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a>
+							<a class="btn red" href="/delete/{{ $article->article_id }}">Delete</a>
 						@endif
 						<!-- change the data href link after hosting -->
 						<div class="fb-share-button right" data-href="http://articulus.frb.io/article/{{$article->article_id}}" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Farticulus.gdgjss.in%2Farticle%2F{{$article->article_id}}&amp;src=sdkpreparse">Share</a></div>
@@ -105,7 +115,7 @@
 											
 											<img src="{{ $comment->image }}" class="circle" style="width: 30px;">
 											<span style="font-size: 20px; color: green;">{{ $comment->username }}</span><br>
-											<span style="color: #8a8a8a;">{{ $comment->created_at }}</span>
+											<span style="color: #8a8a8a;">{{ $comment->created_at->diffForHumans() }}</span>
 											<input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="{{ $comment->content }}" hidden></input>
 											<p id="content{{$comment->comment_id}}">{!! $comment->content !!}</p>
 											@if($user_id==$comment->user_id)

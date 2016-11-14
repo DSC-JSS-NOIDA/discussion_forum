@@ -43,7 +43,7 @@
 									<div class="col s6 l3">
 										<span class="green-text" id="card_name">{{ Auth::user()->username }}</span>
 										<br>
-										<span style="color: #C9C9C9" id="card_date">{{ $my_article->created_at }}</span>
+										<span style="color: #C9C9C9" id="card_date">{ $my_article->created_at->diffForHumans() }}</span>
 									</div>
 									<div class="col s4">
 										<div class="chip">
@@ -76,7 +76,7 @@
 										<div class="col s6 l2">
 											<span class="green-text" id="card_name">{{ $recentarticle->username }}</span>
 											<br>
-											<span style="color: #C9C9C9" id="card_date">{{ $recentarticle->created_at }}</span>
+											<span style="color: #C9C9C9" id="card_date">{{ $recentarticle->created_at->diffForHumans() }}</span>
 										</div>
 										<div class="col s3 l1 offset-l8">
 											<div class="chip">

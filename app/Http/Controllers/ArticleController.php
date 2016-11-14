@@ -114,6 +114,11 @@ class ArticleController extends Controller
                         ->where('users.status',1)
                         ->get();
 
+            $raters = Rating::join('users','users.user_id','=','ratings.user_id')
+                        ->where('ratings.article_id',$id)
+                        ->select('users.username','users.image','ratings.*')
+                        ->get();
+            // return var_dump($raters);
             $rating = Rating::where([
                 ['article_id','=',$id],
                 ['user_id','=',$user_id],
@@ -123,7 +128,7 @@ class ArticleController extends Controller
             else
                 $rating_by_me = $rating[0]->rating;
             // echo $username;
-            return view('article', compact('article','categories','comments','user_id','rating_by_me','username'));
+            return view('article', compact('article','categories','comments','user_id','rating_by_me','username','raters'));
     }
 
     /**
@@ -196,8 +201,30 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+      $category_model = new Category;
+        $categories = $category_model->show();
+     if(Auth::check())
+        {
+            $user = Auth::user();
+            $user_id = $user->user_id;
+            $article_model = new Article;
+            $status = $article_model->check($user_id,$id);
+           if($status)
+              {
+                $article_model->delete_article($id);
+                $rating_model = new Rating;
+                $comment_model = new Comment;
+                $rating_model->deleteByArticleId($id);
+                $comment_model->deleteByArticleId($id);
+                return redirect('/');
+              } 
+            else
+               return view('errors.503',compact('categories'));
+                
+        }
+        else
+            return view('errors.503',compact('categories'));   
     }
 }

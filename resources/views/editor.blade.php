@@ -7,11 +7,11 @@
 @section('content')
 
         <br>
-        <div class="container">
+        <div class="container" style="height: 1200px;">
             @if(isset($status) && Auth::check())
                 <form action="/create_article" method="post">
                     <input type="text" class="title" name="title" required="" placeholder="Title"/>
-                    <textarea name="content" id="editor1" rows="100" cols="80">
+                    <textarea name="content" id="editor1" style="height: 800px;">
                     </textarea>
                     <input type="number" name="category_id" value="{{$category_id}}" hidden="">
                     {{ csrf_field() }}
@@ -22,7 +22,7 @@
                 <form action="/update" method="post">
                     <label class="title">Title</label>&nbsp;
                     <input type="text" class="title" value="{{ $article[0]->title  }}" name="title" required="" />
-                    <textarea name="content" id="editor1" rows="100" cols="80">
+                    <textarea name="content" id="editor1" style="height: 800px;">
         			    {{ $article[0]->content }}
                     </textarea>
                     <input type="number" name="article_id" value="{{$article[0]->article_id}}" hidden="">
