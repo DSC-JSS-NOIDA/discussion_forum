@@ -43,16 +43,16 @@
 									<div class="col s6 l3">
 										<span class="green-text" id="card_name">{{ Auth::user()->username }}</span>
 										<br>
-										<span style="color: #C9C9C9" id="card_date">{ $my_article->created_at->diffForHumans() }}</span>
+										<span style="color: #C9C9C9" id="card_date">{{ $my_article->created_at->diffForHumans() }}</span>
 									</div>
-									<div class="col s4">
+									<div class="col s4 l1 offset-l7">
 										<div class="chip">
 											{{ $my_article->category_name }}
 										</div>
 									</div>
 								</div>
 								
-								<span class="card-title" id="card_title" style="font-weight: 300; font-size: 30px; color: #333333">{{ $my_article->title }}</span>
+								<span class="card-title" id="card_title" style="color: #333333">{{ $my_article->title }}</span>
 								<br>
 								<span id="raw_content">{!! $my_article->rawcontent !!}</span>
 								<br><br>
