@@ -1,5 +1,7 @@
+$("#raters_details").hide();
+
 $(document).ready(function(){
-	
+$("#raters_details").hide();   	
     $(".rating_by_me").click(function(){
 		var rate = $(this).attr("id");
 		// console.log(category_name);
@@ -21,4 +23,10 @@ $(document).ready(function(){
     		}
 		});
 	});
+
+    $("#raters").hover(function(){
+        $("#raters_details").show();        
+    }, function(){
+        $("#raters_details").hide();
+    });
 });
