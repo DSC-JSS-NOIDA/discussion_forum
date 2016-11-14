@@ -31,7 +31,7 @@
 					</div>
 					
 						<div class="col s3 offset-s2">
-							<div style="font-size: 20px;">
+							<div class="raters_hover" style="font-size: 20px;">
 								@if($article->avg_rating==-1)
 									<span style="color: green;">Be the first to rate this!!!</span>
 								@else
@@ -39,6 +39,15 @@
 									<span id="avg_rating">{{ $article->avg_rating }}</span><br>
 									<span style="color: green;">No.of ratings:</span>
 									<span id="raters">{{ $article->no_of_rating }}</span>
+									<!-- details of raters -->
+									<div id="raters_details">
+										@foreach($raters as $rater)
+											<img src="{{ $rater->image }}" class="circle" style="width: 30px;">
+											<span style = "position: relative; top: -9px;">{{ $rater->username}}&emsp;</span>
+											<span style="float: right;">{{ $rater->rating}}</span>
+											<br>
+										@endforeach
+									</div>
 								@endif
 							</div>
 						@if(Auth::check())

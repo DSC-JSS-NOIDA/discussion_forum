@@ -114,6 +114,11 @@ class ArticleController extends Controller
                         ->where('users.status',1)
                         ->get();
 
+            $raters = Rating::join('users','users.user_id','=','ratings.user_id')
+                        ->where('ratings.article_id',$id)
+                        ->select('users.username','users.image','ratings.*')
+                        ->get();
+            // return var_dump($raters);
             $rating = Rating::where([
                 ['article_id','=',$id],
                 ['user_id','=',$user_id],
@@ -123,7 +128,7 @@ class ArticleController extends Controller
             else
                 $rating_by_me = $rating[0]->rating;
             // echo $username;
-            return view('article', compact('article','categories','comments','user_id','rating_by_me','username'));
+            return view('article', compact('article','categories','comments','user_id','rating_by_me','username','raters'));
     }
 
     /**
