@@ -12,8 +12,9 @@
     <br><br>
 
     <table class="bordered striped">
+    <div>
     <tr>
-        <th>Sr.</th>
+        <th>Sno.</th>
     	<th>Author </th>
     <?php $k=1; ?>
     	@foreach($categories as $cat)
@@ -55,7 +56,7 @@
     	@endforeach
     			
     		</tr>
-    	@endforeach		
+    	@endforeach
     </table>
     </div>
 @endsection

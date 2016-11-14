@@ -19,26 +19,26 @@
 			<div class="col s12">
 				
 				<div class="row">
-					<div class="col s1 offset-s1">
-						<img src="{{$article->image}}" alt="" class="circle" style="width: 60px; height:60px;">
+					<div class="col s2 l1 offset-l1">
+						<img src="{{$article->image}}" alt="" class="circle" id="article_img">
 					</div>
-					<div class="col s4">
-						<span style="font-size: 20px; color: green;">{{ $article->username }}</span>
+					<div class="col s10 l2">
+						<span id="article_name" style="color: green;">{{ $article->username }}</span>
 						<br>
-						<span style="color: #c9c9c9;">{{ $article->created_at }}</span>
+						<span id="article_date" style="color: #c9c9c9;">{{ $article->created_at }}</span>
 						<br>
 						<span style="color: #c9c9c9;">{{ $article->category_name }}</span>
 					</div>
-					
-						<div class="col s3 offset-s2">
+
+						<div class="col s12 l4 offset-l4 offset-s1" id="rating_mobile">
 							<div style="font-size: 20px;">
 								@if($article->avg_rating==-1)
-									<span style="color: green;">Be the first to rate this!!!</span>
+									<span style="color: green;" id="no_rating">Be the first to rate this!!!</span>
 								@else
-									<span style="color: green;">Rating:</span>
-									<span id="avg_rating">{{ $article->avg_rating }}</span><br>
-									<span style="color: green;">No.of ratings:</span>
-									<span id="raters">{{ $article->no_of_rating }}</span>
+									<span style="color: green;" class="rating_text">Rating:</span>
+									<span id="avg_rating" class="rating_no">{{ $article->avg_rating }}</span><br>
+									<span style="color: green;" class="rating_text">No.of ratings:</span>
+									<span id="raters" class="rating_no">{{ $article->no_of_rating }}</span>
 								@endif
 							</div>
 						@if(Auth::check())
@@ -65,9 +65,8 @@
 							    </ul>
 							</div>
 						@else
-							<div class="col s3 offset-s3">
-								<br>
-								<span style="color: #c9c9c9; font-size: 16px;">Please login to rate</span>
+							<div class="col s12">
+								<span style="color: #aeacac;" id="login_to_rate">Please login to rate</span>
 							</div>
 						@endif
 
@@ -121,7 +120,7 @@
 
 									<br>
 									@if(Auth::check())
-										<input type="text" placeholder="Comment" id="new_comment_text" id="cmnt">
+										<input type="text" placeholder="Comment" id="new_comment_text" id="cmnt" class="center">
 										<input type="submit" class="btn green" value="Comment" id="new_comment_btn">
 										<script>var username = "{{ $username }}";</script>
 									@else

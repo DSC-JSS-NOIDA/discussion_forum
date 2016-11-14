@@ -44,7 +44,7 @@
   	    <nav class="white">
       		<div class="nav-wrapper container">
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
-              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
         			
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
@@ -65,7 +65,7 @@
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
                 <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
-                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
@@ -88,17 +88,18 @@
       <footer class="page-footer green darken-1">
           <div class="container">
             <div class="row">
-              <div class="col l6 s12">
+              <div class="col l8 s12">
                 <br>
-                <h4 class="white-text" style="font-weight: 200; padding-top: 1px;">Other Links</h4>
-                <!-- <ul class="col s2 offset-s1"> -->
-                  <a href="http://gdgjss.in"><img src="{{ asset('img/gdg.png') }}" style="float:left;" width="50px"/></a>
-                  <a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}"  width="50px"/></a>
-                  <a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="42px"/></a>
-                <!-- </ul> -->
-                
+                <div class="center">
+                  <h4 class="white-text" style="font-weight: 200;">Other Links</h4>
+                  <!-- <ul class="col s2 offset-s1"> -->
+                    <a href="http://gdgjss.in"><img src="{{ asset('img/gdg.png') }}" style="width: 50px;" /></a>&nbsp;&nbsp;
+                    <a href="http://facebook.com/gdgjss"><img src="{{ asset('img/fb.png') }}"  width="50px"/></a>&nbsp;&nbsp;
+                    <a href="http://github.com/gdg-jss-noida"><img src="{{ asset('img/git.png') }}" width="42px"/></a>
+                  <!-- </ul> -->
+                </div>
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div class="col l4 s12">
                 &nbsp;
                 <h4 class="center white-text" style="font-weight: 200;">Categories</h4>
                 <div class="collection">
