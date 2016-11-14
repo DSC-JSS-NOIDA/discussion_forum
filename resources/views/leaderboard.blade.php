@@ -2,16 +2,21 @@
 
 @section('css')
     <!-- Link CSS Files here -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/leaderboard.css') }}">
 @endsection
 
 @section('content')
     
     <div class="container">
     <br>
-    <img src="{{ asset('img/leader1.png') }}" id="leader">
+    <div class="row">
+        <div class="col s12 l4 offset-l4">
+            <img src="{{ asset('img/leader1.png') }}" id="leader">
+        </div>
+    </div>
     <br><br>
 
-    <table class="bordered striped">
+    <table class="bordered striped responsive-table">
     <div>
     <tr>
         <th>Sno.</th>

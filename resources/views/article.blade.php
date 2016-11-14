@@ -81,8 +81,9 @@
 
 
 					</div>
-					<div class="col s10 offset-s1">
-						<h2>{{ $article->title }}</h2>
+					<br><br>
+					<div class="col s11 offset-l1 offset-s1">
+						<span id="title">{{ $article->title }}</span>
 					</div>
 					<div class="col s10 offset-s1">
 						{!! $article->content !!}
