@@ -19,7 +19,7 @@
 		    				<li>Submissions must be a minimum of 300 words. There is no maximum word limit.</li>
 		    				<li>Submissions must be new original work that has not been previously published (this includes articles published in your school newspaper, on other websites or blogs, or even as part of your graduate thesis). Any references made within the work to other studies or publications must be credited and noted. However, submissions will not be considered and may be removed if they are primarily a collection of links to other articles.</li>
 		    				<li>All participants must become registered users , and follow the submission instructions provided for the competition.</li>
-		    				<li>All submissions must be received between November  12, 2016 07:00 pm PDT, and November  20, 2016 07:00 pm IST.</li>
+		    				<li>All submissions must be received between November  12, 2016 07:00 pm IST, and November  20, 2016 07:00 pm IST.</li>
 		    				<li>A participant can write atmost 1 article per category.. that means if there are 5 categories he/she can write atmost 5 articles( each in one category).</li>
 		    				<li>Submissions must be about concerned category, and will be judged upon their clarity, accuracy, and relevance to the discipline of category under which they are submitted. Consideration will also be given to the contemporary nature of the topic, the overall readability of the article, as well as the writing skill of the author.</li>
 		    				<li>Finalists will be notified by email.</li>
