@@ -52,5 +52,25 @@ class Article extends Model
     {
          return Article::where('article_id',$id)->value('no_of_rating');
     }
+    public function check($user_id,$id)
+    {
+        $article = Article::where([
+                ['article_id','=',$id],
+                ['user_id','=',$user_id],
+            ])
+            ->get();
+            if(!count($article))
+                return 0;
+            else
+            {
+                return 1;
+            }
+    }
+
+    public function delete_article($id)
+    {
+        Article::where('article_id',$id)->delete();
+        return;
+    }
 
 }
