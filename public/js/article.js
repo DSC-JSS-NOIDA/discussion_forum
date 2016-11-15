@@ -24,7 +24,7 @@ $("#raters_details").hide();
 		});
 	});
 
-    $("#raters").hover(function(){
+    $(".raters_hover").hover(function(){
         $("#raters_details").show();        
     }, function(){
         $("#raters_details").hide();

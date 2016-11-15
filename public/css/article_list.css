@@ -1,0 +1,46 @@
+#category_bg {
+	width: 100%;
+}
+
+#card_img {
+	width: 40px;
+	height: 40px;
+}
+
+#card_name {
+	font-size: 14px;
+}
+
+#card_date {
+	font-size: 10px;
+}
+
+#card_title {
+	font-weight: 300;
+	font-size: 23px;
+}
+
+@media only screen and (max-width: 500px) {
+	
+	#category_bg {
+		widows: 100%;
+	}
+	
+	#card_img {
+		width: 30px;
+		height: 30px;
+	}
+
+	#card_name {
+		font-size: 14px;
+	}
+
+	#card_date {
+		font-size: 10px;
+	}
+
+	#card_title {
+		font-weight: 300;
+		font-size: 23px;
+	}
+}

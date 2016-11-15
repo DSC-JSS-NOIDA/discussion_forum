@@ -22,6 +22,7 @@ Route::get('/auth/logout', 'Auth\AuthController@logout');
 
 Route::get('/add_article/{category}', [ 'middleware'=>'web','uses'=>'ArticleController@create']);
 Route::get('/editor/{article_id}', [ 'middleware'=>'web','uses'=>'ArticleController@edit']);
+Route::get('/delete/{article_id}',[ 'middleware'=>'web','uses'=>'ArticleController@delete']);
 Route::get('/editor', [ 'middleware'=>'web','uses'=>'ArticleController@create']);
 Route::POST('/create_article',[ 'middleware'=>'web','uses'=>'ArticleController@store']);
 Route::POST('/update',[ 'middleware'=>'web','uses'=>'ArticleController@update']);

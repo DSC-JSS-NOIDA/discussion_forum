@@ -9,28 +9,7 @@ main {
     flex: 1 0 auto;
 }
 
-#home_bg {
-	height: 300px;
-}
-
-@media only screen and (min-width: 500px) {
-	#home_bg {
-		width: 100%;
-		height: 600px;
-	}
-}
-
-
-#login_btn {
-	top: 380px;
-    left: 180px;
-}
-
 #rules {
 	padding-left: 35%;
-}
-
-#leader {
-	padding-left: 25%;
 }
 

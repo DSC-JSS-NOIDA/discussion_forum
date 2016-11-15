@@ -2,12 +2,13 @@
 
 @section('css')
     <!-- Link CSS Files here -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/article_list.css') }}">
 @endsection
 
 @section('content')
 
     <div style="position: relative;">
-        <img src="{{ asset('img/'.$articles[0]->category_name.'.jpg') }}" id="home_bg">
+        <img src="{{ asset('img/'.$articles[0]->category_name.'.jpg') }}" id="category_bg">
 
     </div>
 
@@ -23,15 +24,15 @@
                             <div class="card white">
                                 <div class="card-content black-text">
                                     <div class="row">
-                                        <div class="col s1">
-                                            <img src="{{$article->image}}" alt="" class="circle" style="width: 40px; height: 40px;">
+                                        <div class="col s2 l1">
+                                            <img src="{{$article->image}}" alt="" class="circle" id="card_img">
                                         </div>
-                                        <div class="col s3">
-                                            <span style="font-size: 16px;" class="green-text">{{ $article->username }}</span>
+                                        <div class="col s6 l3">
+                                            <span class="green-text" id="card_name">{{ $article->username }}</span>
                                             <br>
-                                            <span style="color: #C9C9C9">{{ $article->created_at->diffForHumans() }}</span>
+                                            <span style="color: #C9C9C9" id="card_date">{{ $article->created_at->diffForHumans() }}</span>
                                         </div>
-                                        <div class="col s1 offset-s7">
+                                        <div class="col s4 l1 offset-l7">
                                             <div class="chip">
                                                 {{ $article->category_name }}
                                             </div>

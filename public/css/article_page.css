@@ -1,8 +1,3 @@
-#article_page {
-	background-color: white;
-}
-
-
 #refrence {
 	color: #8a8a8a;
 }
@@ -14,8 +9,70 @@
 input[type=text] {
 	border: 1px solid #9e9e9e;
 	border-radius: 3px;
-	height: 100px;
+	height: 60px;
 	padding-left: 10px;
+}
+
+#article_img {
+	width: 40px;
+	height:40px;
+}
+
+#article_name {
+	font-size: 15px;
+}
+
+#article_date {
+	font-size: 12px;
+}
+
+#title {
+	font-size: 45px;
+    font-weight: 300;
+}
+
+@media only screen and (min-width: 500px) {
+	
+	#article_img {
+		width: 60px;
+		height:60px;
+	}
+
+	#article_name {
+		font-size: 20px;
+	}
+
+	#article_date {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+
+	#rating_mobile {
+		padding-top: 15px;
+	}
+
+	#no_rating {
+		font-size: 15px;
+	}
+
+	.rating_text {
+		font-size: 16px;
+	}
+
+	.rating_no {
+		font-size: 15px;
+	}
+
+	#login_to_rate {
+		font-size: 12px;
+	}
+
+	#title {
+		font-size: 35px;
+	    font-weight: 300;
+	}
 }
 
 #raters_details {
