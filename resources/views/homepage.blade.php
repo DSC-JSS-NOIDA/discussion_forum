@@ -102,8 +102,8 @@
 
 	<br><br>
 	@if(Auth::check())
-	<div class="fixed-action-btn toolbar">
-    	<a class="btn-floating btn-large green">
+	<div class="fixed-action-btn toolbar" >
+    	<a class="btn-floating btn-large green " style ="border-width:2px; border-color: white;border-style: solid;">
       		<i class="large material-icons">mode_edit</i>
     	</a>
     	<ul>
