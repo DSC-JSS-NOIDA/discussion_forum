@@ -242,10 +242,16 @@ class ArticleController extends Controller
                 return redirect('/');
               } 
             else
-               return view('errors.503',compact('categories'));
+            {
+                $errorcode=7;
+               return view('errors.503',compact('categories','errorcode'));
+            }
                 
         }
         else
-            return view('errors.503',compact('categories'));   
+        {
+            $errorcode=1;
+            return view('errors.503',compact('categories','errorcode'));   
+        }
     }
 }

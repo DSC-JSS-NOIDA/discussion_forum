@@ -28,6 +28,9 @@
     	case 6:
     		echo "Category doesn't exist.";
 			break; 
+        case 7:
+            echo "Don't you dare to do this.";
+            break;
     	default:
     		echo "Missing Page";
     }
