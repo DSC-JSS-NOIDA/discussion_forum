@@ -26,7 +26,10 @@ class CategoryController extends Controller
         $i=0;
         $categories = $categories->toArray();
         if(empty($categories))
-            return view('errors.503');
+        {
+            $errorcode=6;
+            return view('errors.503','errorcode');
+        }
         $category = $categories[0];
         $articles = Article::join('users','users.user_id','=','articles.user_id')
                     ->join('categories','categories.category_id','=','articles.category_id')

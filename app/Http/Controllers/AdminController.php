@@ -32,10 +32,16 @@ class AdminController extends Controller
                 return view('admin.home',compact('users','categories'));
             }
             else
-                return view('errors.503',compact('categories'));
+            {
+                $errorcode=2;
+                return view('errors.503',compact('categories','errorcode'));
+            }
         }
         else
-            return view('errors.503',compact('categories'));
+        {
+            $errorcode=1;
+            return view('errors.503',compact('categories','errorcode'));
+        }
     }
 
     /**
