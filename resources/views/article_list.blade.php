@@ -55,7 +55,7 @@
     </div>
     @if(Auth::check() && !$my_article)
     <div class="fixed-action-btn">
-        <a class="btn-floating btn-large green" href="/add_article/{{ $articles[0]->category_name }}">
+        <a class="btn-floating btn-large green" style ="border-width:2px; border-color: white;border-style: solid;" href="/add_article/{{ $articles[0]->category_name }}">
             <i class="large material-icons">mode_edit</i>
         </a>
     </div>

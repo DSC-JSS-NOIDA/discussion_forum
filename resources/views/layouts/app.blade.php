@@ -58,6 +58,7 @@
           </li>
         @endforeach
       </ul>
+      <div class="navbar-fixed" >
   	    <nav class="white">
       		<div class="nav-wrapper container">
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
@@ -96,7 +97,7 @@
       		</div>
     		</nav>
       </div>
-
+    </div>
 
         
         @yield('content')
