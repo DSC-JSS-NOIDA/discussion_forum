@@ -58,12 +58,12 @@
           </li>
         @endforeach
       </ul>
-      <div class="navbar-fixed" >
-  	    <nav class="white">
+      <!-- <div class="navbar-fixed" > -->
+  	    <nav class="white" style="top: 0px;position: fixed;z-index: 1000;width: 100%;">
       		<div class="nav-wrapper container">
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
               <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
-        			
+        			<!-- <div class="navbar-fixed"> -->
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
@@ -78,7 +78,7 @@
                   <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
                 @endif
         			</ul>
-
+              <!-- </div> -->
               <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
@@ -96,7 +96,7 @@
               
       		</div>
     		</nav>
-      </div>
+      <!-- </div> -->
     </div>
 
         
