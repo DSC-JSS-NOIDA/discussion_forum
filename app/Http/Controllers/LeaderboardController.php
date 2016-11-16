@@ -20,7 +20,7 @@ class LeaderboardController extends Controller
         $category_model = new Category;        
         $categories = $category_model->show();
     	// $categories = Category::get();
-    	$users = User::join("articles","Users.user_id","=","Articles.user_id")
+    	$users = User::join("articles","users.user_id","=","articles.user_id")
                 ->groupBy('users.user_id')
                 ->where('status',"=","1")->get();
     	$articles =Article::get();
