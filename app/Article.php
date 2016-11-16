@@ -45,7 +45,7 @@ class Article extends Model
         return Article::join('categories','categories.category_id','=','articles.category_id')
                 ->join('users','users.user_id','=','articles.user_id')
                 ->select('categories.category_name','articles.*','users.username','users.image')
-                ->latest()->limit(5)->get();
+                ->latest()->limit(8)->get();
     }
 
     public function getRaters($id)
