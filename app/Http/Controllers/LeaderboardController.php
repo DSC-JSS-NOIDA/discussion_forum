@@ -12,6 +12,7 @@ use App\join;
 use App\Rating;
 use App\User;
 use App\Comment;
+use Db;
 
 class LeaderboardController extends Controller
 {
@@ -22,7 +23,8 @@ class LeaderboardController extends Controller
     	// $categories = Category::get();
     	$users = User::join("articles","users.user_id","=","articles.user_id")
                 ->groupBy('users.user_id')
-                ->where('status',"=","1")->get();
+                ->where('status',"=","1")
+                ->orderBy(DB::raw('SUM(avg_rating)'),'desc')->get();
     	$articles =Article::get();
     	return view('leaderboard',compact('categories','users','articles'));
     }
