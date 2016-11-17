@@ -48,6 +48,7 @@ $(document).ready(function(){
             alert("Seems an Empty Comment");
         else
         {
+        $(this).hide();
             $("#new_comment_text").val('');
             $.ajax({
                 type: 'POST',
@@ -66,6 +67,7 @@ $(document).ready(function(){
 
                         location.reload();
 //                        $("#comment_insert").html('<hr> <h4 >'+username+'</h4> <input type="text" class="edit_box" id="input{{$comment->comment_id}}" value="'+comment+'" hidden></input>            <p id="content{{$comment->comment_id}}">'+comment+'</p>            <span>Now</span>');
+                       // $(this).show();
                     }
                 }
            });

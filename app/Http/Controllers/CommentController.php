@@ -38,16 +38,15 @@ class CommentController extends Controller
         $coment->article_id = $request->article_id;
         $coment->content = $request->comment;
         $coment->save();
-        Mail::send('emails.comment',['user'=>$coment],function($m) use ($coment){
+
+        $user = User::find(Article::find($coment->article_id)->user_id);
+        $from = User::find($coment->user_id);
+        $article=Article::find($coment->article_id);
+
+        Mail::send('emails.comment',['comment'=>$coment,'user'=>$user,'from'=>$from,'article'=>$article],function($m) use ($coment,$user){
             $m->from('gdgjssn@gmail.com','Articulus');
-            $m->to('himanshuagrawal1998@gmail.com','Himanshu Agrawal')->subject('Notification');
+            $m->to($user->email,$user->username)->subject('Notification');
         });
-        // $comment = Comment::insert([
-        //         // 'comment_id' => '303',
-        //         'user_id' => $request->user_id,
-        //         'article_id' => $request->article_id,
-        //         'content' => $request->comment
-        //     ]);
         return "success";
     }
 
