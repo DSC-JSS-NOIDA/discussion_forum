@@ -37,6 +37,8 @@ class CommentController extends Controller
         $coment->user_id = $request->user_id;
         $coment->article_id = $request->article_id;
         $coment->content = $request->comment;
+        $coment->content = str_replace('<script>','',$coment->content);
+        $coment->content = str_replace('</script>','',$coment->content);
         $coment->save();
 
         $user = User::find(Article::find($coment->article_id)->user_id);
@@ -81,6 +83,8 @@ class CommentController extends Controller
     public function edit_comment(Request $request)
     {
         $comment_model = new Comment;
+        $request->comment = str_replace('<script>','',$request->comment);
+        $request->comment = str_replace('</script>','',$request->comment);
         $status = $comment_model->edit($request->comment_id,$request->comment,$request->user_id);
         return;
     }

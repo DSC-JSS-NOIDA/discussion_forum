@@ -65,9 +65,15 @@ class ArticleController extends Controller
         $article->user_id = Auth::user()->user_id;
         $article->category_id = $category_id;
         $article->title = $request->title;
+        $article->title = str_replace('<script>','',$article->title);
+        $article->title = str_replace('</script>','',$article->title);
         $article->content = $request->content;
+        $article->content = str_replace('<script>','',$article->content);
+        $article->content = str_replace('</script>','',$article->content);
         $article->rawcontent = strip_tags($request->content,"");
         $article->reference = $request->reference;
+        $article->reference = str_replace('<script>','',$article->reference);
+        $article->reference = str_replace('</script>','',$article->reference);
         $article->avg_rating = -1;
         $article->no_of_rating = 0;
         $article->save();
