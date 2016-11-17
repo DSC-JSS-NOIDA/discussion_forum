@@ -64,10 +64,10 @@ class ArticleController extends Controller
         $article = new Article;
         $article->user_id = Auth::user()->user_id;
         $article->category_id = $category_id;
-        $article->title = $request->title;
-        $article->content = $request->content;
-        $article->rawcontent = strip_tags($request->content,"");
-        $article->reference = $request->reference;
+        $article->title = str_replace('<script>','',$request->title);
+        $article->content =  str_replace('<script>','',$request->content);
+        $article->rawcontent = strip_tags(str_replace('<script>','',$request->content),"");
+        $article->reference = str_replace('<script>','',$request->reference);
         $article->avg_rating = -1;
         $article->no_of_rating = 0;
         $article->save();
@@ -204,7 +204,11 @@ class ArticleController extends Controller
             {
                 //update article
                 $data = $request->only('title','content','reference');
-                $data["rawcontent"]=strip_tags($request->content,"");                
+                $data["rawcontent"]=strip_tags($request->content,"");
+
+                $data["title"] = str_replace('<script>','',$data["title"]);
+                $data["reference"] = str_replace('<script>','',$data["reference"]);
+                $data["content"] = str_replace('<script>','',$data["content"]);                
                 $article -> update($data);
                 return redirect('/article/'.$request->article_id);
             }

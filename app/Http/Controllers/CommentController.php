@@ -36,7 +36,7 @@ class CommentController extends Controller
         $coment = new Comment;
         $coment->user_id = $request->user_id;
         $coment->article_id = $request->article_id;
-        $coment->content = $request->comment;
+        $coment->content = str_replace('<script>','',$request->comment);
         $coment->save();
 
         $user = User::find(Article::find($coment->article_id)->user_id);
