@@ -231,7 +231,7 @@ class ArticleController extends Controller
             $user = Auth::user();
             $user_id = $user->user_id;
             $article_model = new Article;
-            $status = $article_model->check($user_id,$id);
+            $status = $article_model->check($user_id,$id) || Auth::user()->admin;
            if($status)
               {
                 $article_model->delete_article($id);
