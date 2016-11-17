@@ -38,7 +38,7 @@
   ga('send', 'pageview');
 
 </script>
-    <div>
+    <div style="margin-top:60px;">
       <!-- Dropdown Structure -->
       <ul id="dropdown1" class="dropdown-content" style="top: 65px;">
         @foreach($categories as $category)
@@ -60,7 +60,7 @@
       </ul>
       <!-- <div class="navbar-fixed" > -->
   	    <nav class="white" style="top: 0px;position: fixed;z-index: 1000;width: 100%;">
-      		<div class="nav-wrapper container">
+      		<div class="nav-wrapper container" >
         			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
               <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
         			<!-- <div class="navbar-fixed"> -->
