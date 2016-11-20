@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('css')
-    <!-- Link CSS Files here -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/editor.css') }}">
 @endsection
 
 @section('content')
 
+
         <br>
         <div class="container" style="height: 1200px;">
+        <br>
+        <div class="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          The Event is Over now, and no further submissin will be considered during Evaluations.
+        </div>
+
             @if(isset($status) && Auth::check())
                 <form action="/create_article" method="post">
                     <input type="text" class="title" name="title" required="" placeholder="Title"/>
@@ -16,7 +23,7 @@
                     <input type="number" name="category_id" value="{{$category_id}}" hidden="">
                     {{ csrf_field() }}
                     <input type="text" name="reference" required="" placeholder="Reference" />
-                    <input type="submit" name="submit" class="btn green" value="PUBLISH"/>
+                    <input type="submit" name="submit" class="publish btn green" value="PUBLISH"/>
                 </form>
             @else
                 <form action="/update" method="post">
@@ -29,9 +36,12 @@
                     {{ csrf_field() }}
                     <br>
                     <input type="text" name="reference" value="{{$article[0]->reference}}" required="" />
-                    <input type="submit" name="submit" class="btn green" value="PUBLISH"/>
+                    <input type="submit" name="submit" class="publish btn green" value="PUBLISH"/>
                 </form>
             @endif
+        </div>
+        <div class="publishpopup">
+            The Article Submissions made now will not be considered for Judgement.
         </div>
 
 @endsection
