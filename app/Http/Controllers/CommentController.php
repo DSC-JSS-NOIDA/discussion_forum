@@ -36,9 +36,7 @@ class CommentController extends Controller
         $coment = new Comment;
         $coment->user_id = $request->user_id;
         $coment->article_id = $request->article_id;
-        $coment->content = $request->comment;
-        $coment->content = str_replace('<script>','',$coment->content);
-        $coment->content = str_replace('</script>','',$coment->content);
+        $coment->content = str_replace('<script>','',$request->comment);
         $coment->save();
 
         $user = User::find(Article::find($coment->article_id)->user_id);
@@ -58,10 +56,23 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function sendmail()
     {
-        //
+
+$users = array(
+  array('email' => 'shashaa35@gmail.com','username' => 'Shashank Agarwal'));
+
+foreach ($users as $user) {
+        echo "sending mail to ".$user['username']."<br>";
+        Mail::send('emails.form',['user'=>$user],function($m) use ($user){
+            $m->from('gdgjssn@gmail.com','Articulus');
+            $m->to($user['email'],$user['username'])->subject('Notification');
+        });
+        echo "Mail sent..<br>";
+
     }
+    return "success";
+}
 
     /**
      * Display the specified resource.

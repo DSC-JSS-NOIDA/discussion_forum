@@ -19,7 +19,7 @@ class Comment extends Model
             ])->get();
     	if(count($record))
     	{
-    		$record[0]->content = str_replace('<script>','', $comment);
+    		$record[0]->content = str_replace('<script>','',$comment);
     		$record[0]->save();
     		return 1;
     	}
