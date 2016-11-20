@@ -102,23 +102,23 @@
 
 	<br><br>
 	@if(Auth::check())
-	<div class="fixed-action-btn toolbar" >
-    	<a class="btn-floating btn-large green " style ="border-width:2px; border-color: white;border-style: solid;">
-      		<i class="large material-icons">mode_edit</i>
-    	</a>
-    	<ul>
+	<!-- <div class="fixed-action-btn toolbar" > -->
+    	<!-- <a class="btn-floating btn-large green " style ="border-width:2px; border-color: white;border-style: solid;"> -->
+      		<!-- <i class="large material-icons">mode_edit</i> -->
+    	<!-- </a> -->
+    	<!-- <ul> -->
     	@if(Auth::check())
     		@if(count($my_articles)==count($categories))
-			    <li class="waves-effect waves-light">You have written articles for Each Category</li>
+			    <!-- <li class="waves-effect waves-light">You have written articles for Each Category</li> -->
     		@else
       			@foreach($remaining_categories as $remaining_category)
-      				<li class="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article" id="remaining_categories_style">{{ $remaining_category }}</a></li>
+      				<!-- <li cl<! ass="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article" id="remaining_categories_style">{{ $remaining_category }}</a></li> --> 
 	      		@endforeach
       		@endif
       	@endif
-    	</ul>
-  	</div>
-  	@endif
+    	<!-- </ul> -->
+  	<!-- </div> -->
+  	@endif	
   	</div>
 		
 @endsection

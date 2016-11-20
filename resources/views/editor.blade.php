@@ -29,7 +29,7 @@
                     {{ csrf_field() }}
                     <br>
                     <input type="text" name="reference" value="{{$article[0]->reference}}" required="" />
-                    <input type="submit" name="submit" class="btn green" value="PUBLISH"/>
+                    <!-- <input type="submit" name="submit" class="btn green" value="PUBLISH"/> -->
                 </form>
             @endif
         </div>

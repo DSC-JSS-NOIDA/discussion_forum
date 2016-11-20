@@ -131,7 +131,7 @@
           <div class="footer-copyright  green darken-2">
             <div class="container">
             <span class="">© GDG JSS Noida</span>&emsp;&emsp;
-            <strong>Contact:</strong>&emsp;8287097779(Shashank Agarwal)&emsp;&emsp;9654379609(Himanshu Agarwal)
+            <strong>Contact:</strong>&emsp;8287097779(Shashank Agarwal)&emsp;&emsp;9654379609(Himanshu Agrawal)
             <img src="{{ asset('img/gdg_logo.png') }}" class="right" style="padding-top: 7px;">
             </div>
           </div>

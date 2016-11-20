@@ -93,8 +93,8 @@
 						<span>{{ $article->reference }}</span>
 					</div>
 					<div class="col s10 offset-s1" style="padding-top: 20px;">
-						@if(Auth::check() && ($article->user_id==$user_id || Auth::user()->admin))
-							<a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a>
+						@if(Auth::check() && Auth::user()->admin)
+							<!-- <a class="btn red" href="/editor/{{ $article->article_id }}">Edit</a> -->
 							<a class="btn red" href="#" id="delete_article" articleid="{{ $article->article_id }}">Delete</a>
 						@endif
 						<!-- change the data href link after hosting -->

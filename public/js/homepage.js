@@ -1,4 +1,4 @@
-// $(document).ready(function(){
+$(document).ready(function(){
 // 	$(".create_article").click(function(){
 // 		var category_name = $(this).attr("id");
 // 		console.log(category_name);
@@ -18,4 +18,5 @@
 //     		}
 // 		});
 // 	});
-// });
+ Materialize.toast('The event is over!', 4000);
+});
