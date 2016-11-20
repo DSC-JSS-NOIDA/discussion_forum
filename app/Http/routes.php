@@ -15,6 +15,7 @@ Route::get('/',  [ 'middleware'=>'web','uses'=>'HomeController@index']);
 Route::get('/category/{id}', [ 'middleware'=>'web','uses'=>'CategoryController@index']);
 Route::get('/article/{id}',[ 'middleware'=>'web','uses'=>'ArticleController@show']);
 Route::get('/rules',[ 'middleware'=>'web','uses'=>'LeaderboardController@rules'] );
+Route::get('/announcement',[ 'middleware'=>'web','uses'=>'LeaderboardController@announcement'] );
 
 Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');

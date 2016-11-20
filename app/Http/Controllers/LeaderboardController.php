@@ -42,4 +42,11 @@ class LeaderboardController extends Controller
         $categories = $category_model->show();
         return view('errors.over',compact('categories'));
     }
+
+    public function announcement()
+    {
+        $category_model = new Category;
+        $categories = $category_model->show();
+        return view('announcement',compact('categories'));
+    }
 }
