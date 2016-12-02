@@ -7,14 +7,14 @@
 
 @section('content')
 	
-	<div style="position: relative;">
+<!-- 	<div style="position: relative;">
 		<img src="{{ asset('img/home_cover.jpg') }}" id="home_bg">
 		@if(!Auth::check())
 			<a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Login</a>
 		@endif
 	</div>
-
-
+ -->
+<!-- 
 	<br>
 	<div class="container">
 	<div class="row">
@@ -120,7 +120,123 @@
   	</div>
   	@endif
   	</div>
-		
+ -->		
+
+ <!-- Result -->
+<div class="container" style="margin-top: 30px;">
+	<div class="row">
+		<div class="col s12">
+		<center><img src="{{asset('img/winner.png')}}" height="100px;"></center>
+		</div>
+		<div class="col s12">
+		<center><h2 style="margin-top: 0px;">Results</h2></center>
+		</div>
+	</div>
+	<div class="row">
+		<center><strong>
+		<div class="col s12 m4 l2 offset-l1">
+			<div class="chip row">
+				Technical
+			</div>
+			<div class="row" style="margin-bottom: 0px;">
+				<h5 style="margin-bottom: 0px;">1. Akrita Verma</h5>
+			</div>
+			<div class="row" style="margin-top: 0px;">
+				<h5 style="margin-top: 0px;" style="margin-bottom: 0px;">2. Abhishek</h5>
+			</div>
+		</div>
+		<div class="col s12 m4 l2">
+			<div class="chip row">
+				Social
+			</div>
+			<div class="row">
+				<h5>Praful Goyal</h5>
+			</div>
+		</div>
+		<div class="col s12 m4 l2">
+			<div class="chip row">
+				Politics
+			</div>
+			<div class="row">
+				<h5>Gautam Shakya</h5>
+			</div>
+		</div>
+		<div class="col s12 m4 l2">
+			<div class="chip row">
+				Nature
+			</div>
+			<div class="row">
+				<h5>Ishan Srivastava</h5>
+			</div>
+		</div>
+		<div class="col s12 m4 l2">
+			<div class="chip row">
+				Poetry
+			</div>
+			<div class="row" style="margin-bottom: 0px;">
+				<h5 style="margin-bottom: 0px;">1. Tanya Seth</h5>
+			</div>
+			<div class="row" style="margin-top: 0px;">
+				<h5 style="margin-top: 0px;">2. Swapnil Kumar</h5>
+			</div>
+		</div>
+		</center></strong>
+	</div>
+	<br>
+	<div class="row">
+		<center><h4>Appreciable Articles</h4></center>
+	</div>
+	<div class="row">
+		<div class="col s12 m6 l4">
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4>Technical</h4></li>
+	        <li class="collection-item">Er Mohdanas (Electronic Waste)</li>
+	        <li class="collection-item">Sagar Shelar (Android Pay...)</li>
+	        <li class="collection-item">Aditya Singh (Reliance Revolu...)</li>
+	        <li class="collection-item">Santosh Nahak (Online Threats)</li>
+	      </ul>
+		</div>
+		<div class="col s12 m6 l4">
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4>Social</h4></li>
+	        <li class="collection-item">Akrita Verma (Honour Killing...)</li>
+	        <li class="collection-item">Shraddha Jain (Samaj aur Sans...)</li>
+	        <li class="collection-item">Shaukat Ali Khan (Dard Se Bilakhta...)</li>
+	        <li class="collection-item">Shrishti Yadav (Standing at The Edge)</li>
+	      </ul>
+		</div>
+		<div class="col s12 m6 l4">
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4>Politics</h4></li>
+	        <li class="collection-item">Praful Goyal (Can Modi Be...)</li>
+	        <li class="collection-item">Yashi Agarwal (Media and Politics)</li>
+	        <li class="collection-item">Arvind Singh Chaudhary (Demonitization...)</li>
+	        <li class="collection-item">Er Mohdanas (Kaledhan Ko...)</li>
+	      </ul>
+		</div>
+		<div class="col s12 m6 l4">
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4>Nature</h4></li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	      </ul>
+		</div>
+		<div class="col s12 m6 l4">
+	      <ul class="collection with-header">
+	        <li class="collection-header"><h4>Poetry</h4></li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Alvin</li>
+	      </ul>
+		</div>
+	</div>
+	<div class="row">
+		<center><h4>Note: Prizes and Certificates will be awarded soon.</h4></center>
+	</div>
+</div>
 @endsection
 
 @section('js')
