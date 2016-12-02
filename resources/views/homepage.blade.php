@@ -150,7 +150,7 @@
 				Social
 			</div>
 			<div class="row">
-				<h5>Praful Goyal</h5>
+				<h5>1. Praful Goyal</h5>
 			</div>
 		</div>
 		<div class="col s12 m4 l2">
@@ -158,7 +158,7 @@
 				Politics
 			</div>
 			<div class="row">
-				<h5>Gautam Shakya</h5>
+				<h5>1. Gautam Shakya</h5>
 			</div>
 		</div>
 		<div class="col s12 m4 l2">
@@ -166,7 +166,7 @@
 				Nature
 			</div>
 			<div class="row">
-				<h5>Ishan Srivastava</h5>
+				<h5>1. Ishan Srivastava</h5>
 			</div>
 		</div>
 		<div class="col s12 m4 l2">
@@ -217,19 +217,20 @@
 		<div class="col s12 m6 l4">
 	      <ul class="collection with-header">
 	        <li class="collection-header"><h4>Nature</h4></li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Tanya Seth (Dharmshala The Night...)</li>
+	        <li class="collection-item">Shraddha Jain (Prakriti Kyu Bani...)</li>
+	        <li class="collection-item">Yashi Gupta (Rachael's Song)</li>
+	        <li class="collection-item">N Tara (Seasons of Life)</li>
 	      </ul>
 		</div>
 		<div class="col s12 m6 l4">
 	      <ul class="collection with-header">
 	        <li class="collection-header"><h4>Poetry</h4></li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
-	        <li class="collection-item">Alvin</li>
+	        <li class="collection-item">Yashi Gupta (Seldom)</li>
+	        <li class="collection-item">Niharika Sakshee (What If I told...)</li>
+	        <li class="collection-item">Sakshi Sharma (Save Yourself an...)</li>
+	        <li class="collection-item">Avni Agarwal (Captive in a Zoo)</li>
+	        <li class="collection-item">Devesh Upadhyay (Jeevan Gaatha)</li>
 	      </ul>
 		</div>
 	</div>
