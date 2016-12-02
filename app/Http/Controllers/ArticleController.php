@@ -50,16 +50,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $category_model = new Category;
+        $categories = $category_model->show();
         $category_id = $request->category_id;
         $articles = Article::where([
-                ['user_id','=',$request->user_id],
+                ['user_id','=',Auth::user()->user_id],
                 ['category_id','=',$category_id]
             ])
             ->get();
         if(count($articles))
         {
             $errorcode=3;
-            return view('errors.503','errorcode');
+            return view('errors.503',compact('errorcode','categories'));
         }
         $article = new Article;
         $article->user_id = Auth::user()->user_id;
