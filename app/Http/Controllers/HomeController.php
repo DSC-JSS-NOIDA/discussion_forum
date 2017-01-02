@@ -31,24 +31,24 @@ class HomeController extends Controller
         				->select('users.username','users.user_id','users.image','articles.*','categories.category_name')
         				->where('users.email',$user->email)
         				->get();
-            $remaining_categories = array();
-            foreach ($categories as $category)
-            {
-                $flag=1;
-                foreach ($my_articles as $my_article)
-                {
-                    if($category->category_id==$my_article->category_id)
-                    {
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==1)
-                {
-                    $remaining_categories[] = $category->category_name;
-                }
-            }
-        	return view('homepage', compact('categories','my_articles','remaining_categories','user_id','recentarticles'));
+            // $remaining_categories = array();
+            // foreach ($categories as $category)
+            // {
+            //     $flag=1;
+            //     foreach ($my_articles as $my_article)
+            //     {
+            //         if($category->category_id==$my_article->category_id)
+            //         {
+            //             $flag=0;
+            //             break;
+            //         }
+            //     }
+            //     if($flag==1)
+            //     {
+            //         $remaining_categories[] = $category->category_name;
+            //     }
+            // }
+        	return view('homepage', compact('categories','my_articles','user_id','recentarticles'));
         }
         else
         {

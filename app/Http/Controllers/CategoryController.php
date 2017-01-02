@@ -22,6 +22,13 @@ class CategoryController extends Controller
      */
     public function index($id)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $categories = Category::where('category_id',$id)->get();
         $i=0;
         $categories = $categories->toArray();

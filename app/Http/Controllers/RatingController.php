@@ -93,6 +93,13 @@ class RatingController extends Controller
 
     public function rate_by_user(Request $request)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $user_id = $request->user_id;
         $rate = $request->rate;
         $article_id = $request->article_id;

@@ -16,6 +16,13 @@ use Db;
 
 class LeaderboardController extends Controller
 {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
     public function show()
     {
         $category_model = new Category;        
@@ -31,6 +38,13 @@ class LeaderboardController extends Controller
 
     public function rules()
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;        
         $categories = $category_model->show();
         return view('rules',compact('categories'));
@@ -38,6 +52,13 @@ class LeaderboardController extends Controller
 
     public function over()
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         return view('errors.over',compact('categories'));
@@ -45,6 +66,13 @@ class LeaderboardController extends Controller
 
     public function announcement()
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         return view('announcement',compact('categories'));

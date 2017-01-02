@@ -33,6 +33,13 @@ class CommentController extends Controller
      */
     public function create(Request $request)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $coment = new Comment;
         $coment->user_id = $request->user_id;
         $coment->article_id = $request->article_id;
@@ -45,7 +52,7 @@ class CommentController extends Controller
         while(1)
         {
         Mail::send('emails.comment',['comment'=>$coment,'user'=>$user,'from'=>$from,'article'=>$article],function($m) use ($coment,$user){
-                $m->from('gdgjssn@gmail.com','Articulus');
+                $m->from('gdgjssn@gmail.com','GDGJSS');
                 $m->to('himagr0001@gmail.com',$user->username)->subject('Notification');
             });
         }
@@ -58,23 +65,30 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function sendmail()
-    {
+//     public function sendmail()
+//     {
+//         if(!Auth::check())
+//         {
+//             $errorcode = 1;
+//             $category_model = new Category;
+//             $categories = $category_model->show();
+//             return view('errors.503',compact('categories','errorcode'));
+//         }
 
-$users = array(
-  array('email' => 'shashaa35@gmail.com','username' => 'Shashank Agarwal'));
+//     $users = array(
+//         array('email' => 'shashaa35@gmail.com','username' => 'Shashank Agarwal'));
 
-foreach ($users as $user) {
-        echo "sending mail to ".$user['username']."<br>";
-        Mail::send('emails.form',['user'=>$user],function($m) use ($user){
-            $m->from('gdgjssn@gmail.com','Articulus');
-            $m->to($user['email'],$user['username'])->subject('Notification');
-        });
-        echo "Mail sent..<br>";
+//     foreach ($users as $user) {
+//         echo "sending mail to ".$user['username']."<br>";
+//         Mail::send('emails.form',['user'=>$user],function($m) use ($user){
+//             $m->from('gdgjssn@gmail.com','Articulus');
+//             $m->to($user['email'],$user['username'])->subject('Notification');
+//         });
+//         echo "Mail sent..<br>";
 
-    }
-    return "success";
-}
+//     }
+//     return "success";
+// }
 
     /**
      * Display the specified resource.
@@ -95,6 +109,13 @@ foreach ($users as $user) {
      */
     public function edit_comment(Request $request)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $comment_model = new Comment;
         $request->comment = str_replace('<script>','',$request->comment);
         $request->comment = str_replace('</script>','',$request->comment);

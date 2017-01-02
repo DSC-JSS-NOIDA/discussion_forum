@@ -32,6 +32,13 @@ class ArticleController extends Controller
      */
     public function create($category)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         $category = Category::where('category_name',$category)->get();
@@ -50,6 +57,13 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         $category_id = $request->category_id;
@@ -58,11 +72,11 @@ class ArticleController extends Controller
                 ['category_id','=',$category_id]
             ])
             ->get();
-        if(count($articles))
-        {
-            $errorcode=3;
-            return view('errors.503',compact('errorcode','categories'));
-        }
+        // if(count($articles))
+        // {
+        //     $errorcode=3;
+        //     return view('errors.503',compact('errorcode','categories'));
+        // }
         $article = new Article;
         $article->user_id = Auth::user()->user_id;
         $article->category_id = $category_id;
@@ -85,9 +99,16 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
-      if(Auth::check())
+        if(Auth::check())
         {
             $user = Auth::user();
             $user_id = $user->user_id;
@@ -150,6 +171,13 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         if(Auth::check())
@@ -187,6 +215,13 @@ class ArticleController extends Controller
      */
     public function update(Request $request)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
         $category_model = new Category;
         $categories = $category_model->show();
         if(Auth::check())
@@ -230,6 +265,13 @@ class ArticleController extends Controller
      */
     public function delete($id)
     {
+        if(!Auth::check())
+        {
+            $errorcode = 1;
+            $category_model = new Category;
+            $categories = $category_model->show();
+            return view('errors.503',compact('categories','errorcode'));
+        }
       $category_model = new Category;
         $categories = $category_model->show();
      if(Auth::check())

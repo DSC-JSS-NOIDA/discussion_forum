@@ -108,11 +108,11 @@
     	</a>
     	<ul>
     	@if(Auth::check())
-    		@if(count($my_articles)==count($categories))
+<!--     		@if(count($my_articles)==count($categories))
 			    <li class="waves-effect waves-light">You have written articles for Each Category</li>
     		@else
-      			@foreach($remaining_categories as $remaining_category)
-      				<li class="waves-effect waves-light"><a href="/add_article/{{ $remaining_category }}" class="create_article" id="remaining_categories_style">{{ $remaining_category }}</a></li>
+ -->      			@foreach($categories as $category)
+      				<li class="waves-effect waves-light"><a href="/add_article/{{ $category['category_name'] }}" class="create_article" id="remaining_categories_style">{{ $category['category_name'] }}</a></li>
 	      		@endforeach
       		@endif
       	@endif
