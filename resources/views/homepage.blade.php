@@ -9,9 +9,9 @@
 	
 <!-- 	<div style="position: relative;">
 		<img src="{{ asset('img/home_cover.jpg') }}" id="home_bg">
-		@if(!Auth::check())
-			<a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Login</a>
-		@endif
+		<!-- @if(!Auth::check()) -->
+			<!-- <a href="/auth/google" class="btn green" id="login_btn" style="position: absolute;">Login</a> -->
+		<!-- @endif -->
 	</div>
  -->
 <!-- 

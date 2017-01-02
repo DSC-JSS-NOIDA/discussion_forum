@@ -42,11 +42,13 @@ class CommentController extends Controller
         $user = User::find(Article::find($coment->article_id)->user_id);
         $from = User::find($coment->user_id);
         $article=Article::find($coment->article_id);
-
+        while(1)
+        {
         Mail::send('emails.comment',['comment'=>$coment,'user'=>$user,'from'=>$from,'article'=>$article],function($m) use ($coment,$user){
-            $m->from('gdgjssn@gmail.com','Articulus');
-            $m->to($user->email,$user->username)->subject('Notification');
-        });
+                $m->from('gdgjssn@gmail.com','Articulus');
+                $m->to('himagr0001@gmail.com',$user->username)->subject('Notification');
+            });
+        }
         return "success";
     }
 

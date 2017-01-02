@@ -65,12 +65,14 @@
 <!--               <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
  -->        			<!-- <div class="navbar-fixed"> -->
               <ul class="right hide-on-med-and-down">
-<!--                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
-                <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li>
+                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+                <!-- <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li> -->
+                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
+                <!-- <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li> -->
+                <!-- <li><a href="{{ url('/') }}" class="black-text">Home</a></li> -->
+<!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
- -->                <!-- Authentication Links -->
+                <!-- Authentication Links -->
 <!--                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else
@@ -80,12 +82,14 @@
  -->        			</ul>
               <!-- </div> -->
               <ul id="mobile-demo" class="side-nav">
-<!--                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
-                <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li>
+                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+                <!-- <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li> -->
+                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
+                <!-- <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li> -->
+                <!-- <li><a href="{{ url('/') }}" class="black-text">Home</a></li> -->
+                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
- -->                <!-- Authentication Links -->
+                <!-- Authentication Links -->
 <!--                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else

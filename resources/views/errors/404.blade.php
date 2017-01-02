@@ -35,15 +35,15 @@ background-position: center;">
   	    <nav class="white">
       		<div class="nav-wrapper container">
         		<center>	<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a></center>
-<!--               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
- -->        			
-              <ul class="right hide-on-med-and-down">
-<!--                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
- --><!--                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+               <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        			
+             <ul class="right hide-on-med-and-down">
+
+                <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
+                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
+<!--                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
  -->                <!-- Authentication Links -->
-<!--                 @if (!(Auth::check()))
+                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else
                   <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
@@ -53,9 +53,8 @@ background-position: center;">
               
               <ul id="mobile-demo" class="side-nav">
                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li>
-                <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li>
- --><!--                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
+<!--                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
  -->                <!-- Authentication Links -->
 <!--                 @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
