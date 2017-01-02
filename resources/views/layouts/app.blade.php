@@ -40,7 +40,7 @@
 </script>
     <div style="margin-top:60px;">
       <!-- Dropdown Structure -->
-<!--       <ul id="dropdown1" class="dropdown-content" style="top: 65px;">
+      <ul id="dropdown1" class="dropdown-content" style="top: 65px;">
         @foreach($categories as $category)
           <li>
             <a href="/category/{{$category->category_id}}" ref="">
@@ -58,45 +58,39 @@
           </li>
         @endforeach
       </ul>
- -->      <!-- <div class="navbar-fixed" > -->
+      <!-- <div class="navbar-fixed" > -->
   	    <nav class="white" style="top: 0px;position: fixed;z-index: 1000;width: 100%;">
       		<div class="nav-wrapper container" >
-        			<center><a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a></center>
-<!--               <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
- -->        			<!-- <div class="navbar-fixed"> -->
+        			<a href="{{ url('/') }}" class="brand-logo black-text"><img src="{{ asset('img/logo1.png') }}"></a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse" style="color: black;"><i class="material-icons">menu</i></a>
+        			<!-- <div class="navbar-fixed"> -->
               <ul class="right hide-on-med-and-down">
-                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <!-- <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li> -->
-                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
-                <!-- <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li> -->
-                <!-- <li><a href="{{ url('/') }}" class="black-text">Home</a></li> -->
+                <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
 <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
-<!--                 @if (!(Auth::check()))
+                @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else
                   <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                  <!-- Dropdown Trigger -->
                   <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
                 @endif
- -->        			</ul>
+        			</ul>
               <!-- </div> -->
               <ul id="mobile-demo" class="side-nav">
-                 <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
-                <!-- <li><a href="{{ url('/rules') }}" class="black-text">Rules</a></li> -->
-                <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
-                <!-- <li><a href="{{ url('/announcement') }}" class="black-text">Announcements</a></li> -->
-                <!-- <li><a href="{{ url('/') }}" class="black-text">Home</a></li> -->
+                <li><a href="{{ url('/') }}" class="black-text">Home</a></li>
                 <!-- <li><a href="{{ url('/leaderboard') }}" class="black-text">Participants</a></li> -->
                 <li><a href="#!" class="dropdown-button black-text" data-activates="dropdown2">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <!-- Authentication Links -->
-<!--                 @if (!(Auth::check()))
+                @if (!(Auth::check()))
                   <li><a class="nav-menu green-text" href="/auth/google">Sign in/Sign up</a></li>
                 @else
                   <li><a href="{{ url('auth/logout') }}" class="black-text">Logout</a></li>
+                  <!-- Dropdown Trigger -->
                   <li><a class="black-text" href="#!">{{ Auth::user()->username }}</a></li>
                 @endif
- -->              </ul>
+              </ul>
               
       		</div>
     		</nav>
@@ -110,7 +104,7 @@
       <footer class="page-footer green darken-1">
           <div class="container">
             <div class="row">
-              <div class="col s12">
+              <div class="col l8 s12">
                 <br>
                 <div class="center">
                   <h4 class="white-text" style="font-weight: 200;">Other Links</h4>
@@ -121,7 +115,7 @@
                   <!-- </ul> -->
                 </div>
               </div>
-<!--               <div class="col l4 s12">
+              <div class="col l4 s12">
                 &nbsp;
                 <h4 class="center white-text" style="font-weight: 200;">Categories</h4>
                 <div class="collection">
@@ -130,12 +124,12 @@
                   @endforeach
                 </div>
               </div>
- -->            </div>
+            </div>
           </div>
           <div class="footer-copyright  green darken-2">
             <div class="container">
             <span class="">© GDG JSS Noida</span>&emsp;&emsp;
-            <strong>Contact:</strong>&emsp;8287097779(Shashank Agarwal)&emsp;&emsp;9654379609(Himanshu Agrawal)
+            <strong>Contact:</strong>&emsp;8287097779(Shashank Agarwal)&emsp;&emsp;9654379609(Himanshu Agarwal)
             <img src="{{ asset('img/gdg_logo.png') }}" class="right" style="padding-top: 7px;">
             </div>
           </div>
