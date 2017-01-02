@@ -14,8 +14,8 @@
 Route::get('/',  [ 'middleware'=>'web','uses'=>'HomeController@index']);
 Route::get('/category/{id}', [ 'middleware'=>'web','uses'=>'CategoryController@index']);
 Route::get('/article/{id}',[ 'middleware'=>'web','uses'=>'ArticleController@show']);
-Route::get('/rules',[ 'middleware'=>'web','uses'=>'LeaderboardController@rules'] );
-Route::get('/announcement',[ 'middleware'=>'web','uses'=>'LeaderboardController@announcement'] );
+// Route::get('/rules',[ 'middleware'=>'web','uses'=>'LeaderboardController@rules'] );
+// Route::get('/announcement',[ 'middleware'=>'web','uses'=>'LeaderboardController@announcement'] );
 
 Route::get('/auth/google', 'Auth\AuthController@redirectToProvider');
 Route::get('/callback/google', 'Auth\AuthController@handleProviderCallback');
@@ -35,4 +35,4 @@ Route::get('/send',['middleware'=>'web','uses'=>'CommentController@sendmail']);
 Route::get('/admin', [ 'middleware'=>'web','uses'=>'AdminController@index']);
 Route::post('/admin/spamuser', [ 'middleware'=>'web','uses'=>'AdminController@spam']);
 
-Route::get('/leaderboard', [ 'middleware'=>'web','uses'=>'LeaderboardController@show'] );
+// Route::get('/leaderboard', [ 'middleware'=>'web','uses'=>'LeaderboardController@show'] );

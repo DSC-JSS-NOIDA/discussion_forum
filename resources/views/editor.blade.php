@@ -10,11 +10,11 @@
         <br>
         <div class="container" style="height: 1200px;">
         <br>
-        <div class="alert">
+<!--         <div class="alert">
           <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
           The Event is Over now, and no further submissin will be considered during Evaluations.
         </div>
-
+ -->
             @if(isset($status) && Auth::check())
                 <form action="/create_article" method="post">
                     <input type="text" class="title" name="title" required="" placeholder="Title"/>
